@@ -2379,15 +2379,26 @@ function importProgress() {
     if (data.settings) localStorage.setItem(SETTINGS_KEY, JSON.stringify(data.settings));
     if (data.progress) localStorage.setItem(SAVE_KEY, JSON.stringify(data.progress));
     area.value = '';
-    // Reload state from localStorage
+ 
+    // Reload all state fresh
     loadSettings();
     loadState();
     checkHabitDailyReset();
-    jarOd = null;
-    renderAll();
-    initJarOdometer();
-    showToast('✅ Progress imported! Welcome back.');
+ 
+    // Navigate to dashboard first so all DOM panels are visible
     showScreen('dashboard');
+    switchTab('habits');
+ 
+    // Then re-render everything after a frame so DOM is ready
+    requestAnimationFrame(() => {
+      jarOd = null;
+      renderAll();
+      initJarOdometer();
+      // Force-refresh the stats tab too in case it was active
+      renderRewardsPanel();
+      renderHabitGrids();
+      showToast('✅ Progress imported! Welcome back.');
+    });
   } catch(e) {
     showToast('Import failed — check the pasted data');
   }
@@ -3006,4 +3017,3 @@ window.addEventListener('load', () => {
 </script>
 </body>
 </html>
- 
