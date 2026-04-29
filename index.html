@@ -10,7 +10,7 @@
 <link rel="icon" href="./favicon2.png">
 <meta name="theme-color" content="#0B0C11">
   
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 :root{
@@ -34,7 +34,7 @@
 body{
   background:var(--bg);
   color:var(--text);
-  font-family:'Syne',sans-serif;
+  font-family:'Inter',sans-serif;
   max-width:430px;
   margin:0 auto;
   min-height:100vh;
@@ -77,7 +77,7 @@ h2{font-size:1.4rem;font-weight:700;}
 /* BUTTONS */
 .btn{
   display:flex;align-items:center;justify-content:center;
-  font-family:'Syne',sans-serif;font-weight:700;
+  font-family:'Inter',sans-serif;font-weight:700;
   border:none;cursor:pointer;border-radius:50px;
   transition:transform 0.12s,opacity 0.12s,box-shadow 0.12s;
   outline:none;
@@ -131,11 +131,11 @@ h2{font-size:1.4rem;font-weight:700;}
   touch-action:none;
 }
 .clip:active{cursor:grabbing;transform:scale(1.2);}
-.clip svg{width:100%;height:100%;filter:drop-shadow(0 2px 6px currentColor);}
+.clip svg{width:100%;height:100%;filter:drop-shadow(0 1px 2px currentColor);}
 .clip-red{color:#ef4444;} .clip-blue{color:#3b82f6;} .clip-green{color:#22c55e;}
 .clip-orange{color:#f97316;} .clip-purple{color:#a855f7;} .clip-pink{color:#ec4899;}
 .clip-gold{color:#f8b722;animation:goldPulse 1.5s ease-in-out infinite;}
-@keyframes goldPulse{0%,100%{filter:drop-shadow(0 2px 8px #f8b722) brightness(1);}50%{filter:drop-shadow(0 4px 16px #ffdd44) brightness(1.3);}}
+@keyframes goldPulse{0%,100%{filter:drop-shadow(0 1px 3px #f8b722) brightness(1);}50%{filter:drop-shadow(0 2px 6px #ffdd44) brightness(1.3);}}
 
 /* DRAG GHOST */
 #drag-ghost{
@@ -280,14 +280,18 @@ h2{font-size:1.4rem;font-weight:700;}
 
 /* NOTIFICATION TOAST */
 #toast{
-  position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
-  background:var(--card2);border:1px solid var(--border);
-  border-radius:50px;padding:10px 20px;
-  font-size:0.875rem;font-weight:600;z-index:1000;
-  transition:all 0.3s;opacity:0;pointer-events:none;
-  white-space:nowrap;max-width:90%;
+  position:fixed;top:100px;left:50%;transform:translateX(-50%) translateY(-20px);
+  background:#0d0f1a;
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:14px;
+  padding:10px 18px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.6);
+  font-weight:600;z-index:1000;
+  transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  opacity:0;pointer-events:none;
+  max-width:88%;text-align:center;line-height:1.4;
 }
-#toast.show{opacity:1;}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 
 /* CLIP EARNED POPUP */
 .clip-earned-popup{
@@ -310,7 +314,7 @@ h2{font-size:1.4rem;font-weight:700;}
 .setup-input{
   width:100%;background:var(--card2);border:1px solid var(--border);
   border-radius:12px;padding:14px 16px;
-  color:var(--text);font-family:'Syne',sans-serif;font-size:0.9rem;
+  color:var(--text);font-family:'Inter',sans-serif;font-size:0.9rem;
   outline:none;transition:border-color 0.2s;
 }
 .setup-input:focus{border-color:var(--mint);}
@@ -356,10 +360,12 @@ h2{font-size:1.4rem;font-weight:700;}
 /* Odometer minimal theme */
 .odometer.odometer-auto-theme,.odometer.odometer-theme-minimal{font-family:inherit;line-height:1em;display:inline-block;position:relative}.odometer.odometer-auto-theme .odometer-digit,.odometer.odometer-theme-minimal .odometer-digit{display:inline-block;position:relative}.odometer.odometer-auto-theme .odometer-digit .odometer-digit-spacer,.odometer.odometer-theme-minimal .odometer-digit .odometer-digit-spacer{display:inline-block;visibility:hidden}.odometer.odometer-auto-theme .odometer-digit .odometer-digit-inner,.odometer.odometer-theme-minimal .odometer-digit .odometer-digit-inner{text-align:left;display:block;position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden}.odometer.odometer-auto-theme .odometer-digit .odometer-ribbon,.odometer.odometer-theme-minimal .odometer-digit .odometer-ribbon{display:block}.odometer.odometer-auto-theme .odometer-digit .odometer-ribbon-inner,.odometer.odometer-theme-minimal .odometer-digit .odometer-ribbon-inner{display:block;-webkit-backface-visibility:hidden}.odometer.odometer-auto-theme .odometer-digit .odometer-value,.odometer.odometer-theme-minimal .odometer-digit .odometer-value{display:block;-webkit-transform:translateZ(0)}.odometer.odometer-auto-theme .odometer-digit .odometer-value.odometer-last-value,.odometer.odometer-theme-minimal .odometer-digit .odometer-value.odometer-last-value{position:absolute}.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner,.odometer.odometer-theme-minimal.odometer-animating-up .odometer-ribbon-inner{-webkit-transition:all 1000ms ease-in-out;-moz-transition:all 1000ms ease-in-out;-ms-transition:all 1000ms ease-in-out;-o-transition:all 1000ms ease-in-out;transition:all 1000ms ease-in-out}.odometer.odometer-auto-theme.odometer-animating-up.odometer-animating .odometer-ribbon-inner,.odometer.odometer-theme-minimal.odometer-animating-up.odometer-animating .odometer-ribbon-inner{-webkit-transform:translateY(-100%);-moz-transform:translateY(-100%);-ms-transform:translateY(-100%);-o-transform:translateY(-100%);transform:translateY(-100%)}.odometer.odometer-auto-theme.odometer-animating-down .odometer-ribbon-inner,.odometer.odometer-theme-minimal.odometer-animating-down .odometer-ribbon-inner{-webkit-transform:translateY(-100%);-moz-transform:translateY(-100%);-ms-transform:translateY(-100%);-o-transform:translateY(-100%);transform:translateY(-100%)}.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner,.odometer.odometer-theme-minimal.odometer-animating-down.odometer-animating .odometer-ribbon-inner{-webkit-transition:all 1000ms ease-in-out;-moz-transition:all 1000ms ease-in-out;-ms-transition:all 1000ms ease-in-out;-o-transition:all 1000ms ease-in-out;transition:all 1000ms ease-in-out;-webkit-transform:translateY(0);-moz-transform:translateY(0);-ms-transform:translateY(0);-o-transform:translateY(0);transform:translateY(0)}
 /* Override odometer color to match our gold theme */
-#jar-amount.odometer{color:var(--gold);font-family:'Outfit',sans-serif;font-size:2rem;font-weight:800;letter-spacing:-0.02em;line-height:1;}
+#jar-amount.odometer{color:var(--gold);font-family:'Inter',sans-serif;font-size:2rem;font-weight:800;letter-spacing:-0.02em;line-height:1;}
 .clip.selected svg{filter:drop-shadow(0 0 8px var(--mint));outline:2px solid var(--mint);border-radius:4px;}
 .clip.selected{transform:scale(1.15);}
-/* Long-press undo ring */
+/* Emoji picker pulse */
+@keyframes emojiPulse{0%,100%{opacity:1;}50%{opacity:0;}}
+.emoji-picking{animation:emojiPulse 1.2s ease-in-out infinite;}
 /* Hold-to-undo green fill */
 .habit-undo-fill{
   position:absolute;inset:0;border-radius:18px;pointer-events:none;
@@ -379,14 +385,13 @@ h2{font-size:1.4rem;font-weight:700;}
 
 <!-- ============ SCREEN: DASHBOARD ============ -->
 <div id="screen-dashboard" class="screen active">
-  <div style="position:sticky;top:0;z-index:20;background:var(--bg);">
+  <div style="position:sticky;top:0;z-index:20;background:var(--bg);box-shadow:0 0 0 100vw var(--bg);clip-path:inset(0 -100vw);">
     <div class="topbar">
       <div>
-        <div style="font-size:1.3rem;font-weight:800;letter-spacing:-0.02em;">CLIP<span style="color:var(--mint)">SPIN</span></div>
-        <div id="nav-date" style="font-size:0.875rem;color:#a0a8c0;font-weight:600;margin-top:2px;"></div>
+        <div style="font-size:1.5rem;font-weight:400;font-family:'Barrio',cursive;letter-spacing:0.02em;">HABIT<span style="color:var(--mint)">SPIN</span></div>
+        <div id="nav-date" style="color:#a0a8c0;font-weight:400;margin-top:2px;"></div>
       </div>
       <div style="display:flex;align-items:center;gap:10px;">
-        <div id="streak-badge" class="streak-badge" style="display:none;">🔥 <span id="streak-count">0</span> streak</div>
         <button class="btn btn-ghost btn-sm" onclick="showScreen('setup')" style="border-radius:12px;">⚙️ Setup</button>
       </div>
     </div>
@@ -431,15 +436,14 @@ h2{font-size:1.4rem;font-weight:700;}
         </div>
       </div>
     </div>
+    <!-- TAB BAR — sticky with the header -->
+    <div style="display:flex;gap:0;border-bottom:1px solid var(--border);padding:0 20px;background:var(--bg);">
+      <button id="tab-habits" onclick="switchTab('habits')" style="flex:1;padding:10px;font-family:'Inter',sans-serif;font-weight:700;background:none;border:none;color:var(--text);border-bottom:2px solid var(--mint);cursor:pointer;">Habits</button>
+      <button id="tab-stats" onclick="switchTab('stats')" style="flex:1;padding:10px;font-family:'Inter',sans-serif;font-weight:700;background:none;border:none;color:var(--muted);border-bottom:2px solid transparent;cursor:pointer;">Rewards & Stats</button>
+    </div>
   </div>
 
   <div style="padding:0 20px 20px;flex:1;display:flex;flex-direction:column;gap:16px;overflow-y:auto;">
-
-    <!-- TAB BAR -->
-    <div style="display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:12px;">
-      <button id="tab-habits" onclick="switchTab('habits')" style="flex:1;padding:10px;font-family:'Syne',sans-serif;font-size:0.875rem;font-weight:700;background:none;border:none;color:var(--text);border-bottom:2px solid var(--mint);cursor:pointer;">Habits</button>
-      <button id="tab-stats" onclick="switchTab('stats')" style="flex:1;padding:10px;font-family:'Syne',sans-serif;font-size:0.875rem;font-weight:700;background:none;border:none;color:var(--muted);border-bottom:2px solid transparent;cursor:pointer;">Stats</button>
-    </div>
 
     <!-- HABITS PANEL -->
     <div id="panel-habits">
@@ -451,19 +455,34 @@ h2{font-size:1.4rem;font-weight:700;}
 
     <!-- STATS PANEL -->
     <div id="panel-stats" style="display:none;flex-direction:column;gap:20px;">
+      <!-- Stats banner (moved from setup) -->
+      <div class="card" style="background:linear-gradient(135deg,rgba(0,229,160,0.08),rgba(75,124,247,0.08));border-color:rgba(0,229,160,0.15);display:flex;gap:0;overflow:hidden;padding:0;border-radius:18px;">
+        <div style="flex:1;padding:14px 16px;text-align:center;border-right:1px solid rgba(255,255,255,0.06);">
+          <div id="stat-habits-done" style="font-size:1.8rem;font-weight:800;color:var(--mint);">0</div>
+          <div style="font-size:0.875rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:2px;">Habits Done</div>
+        </div>
+        <div style="flex:1;padding:14px 16px;text-align:center;border-right:1px solid rgba(255,255,255,0.06);">
+          <div id="stat-clips-total" style="font-size:1.8rem;font-weight:800;color:var(--gold);">0</div>
+          <div style="font-size:0.875rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:2px;">Clips Earned</div>
+        </div>
+        <div style="flex:1;padding:14px 16px;text-align:center;">
+          <div id="stat-jar-total" style="font-size:1.8rem;font-weight:800;color:var(--blue);">$0</div>
+          <div style="font-size:0.875rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:2px;">In Jar</div>
+        </div>
+      </div>
       <!-- Rewards section -->
       <div>
         <div style="font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:10px;">🎟️ Your Rewards</div>
         <div id="rewards-list" style="display:flex;flex-direction:column;gap:8px;"></div>
       </div>
       <!-- Monthly habit grids -->
-      <div style="margin-top:12px;">
+      <div style="margin-top:12px;padding-bottom:32px;">
         <div style="font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:10px;" id="month-grid-label">📅 Month of April</div>
         <div id="habit-grids" style="display:flex;flex-direction:column;gap:16px;"></div>
       </div>
     </div>
 
-    <!-- CLIP INVENTORY -->
+    <div id="clips-and-spin-section">
     <div class="card">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
         <div>
@@ -479,7 +498,7 @@ h2{font-size:1.4rem;font-weight:700;}
 
     <!-- SELECTED / DROP ZONE -->
     <div>
-      <div style="font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:8px;">
+      <div style="font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:8px;margin-top:16px;">
         Selected Clips
       </div>
       <div id="drop-zone" class="drop-zone">
@@ -501,12 +520,13 @@ h2{font-size:1.4rem;font-weight:700;}
     </div>
 
     <!-- SPIN BUTTON -->
-    <div style="display:flex;gap:10px;margin-top:4px;">
+    <div style="display:flex;gap:10px;margin-top:20px;">
       <button id="spin-btn" class="btn btn-primary" style="flex:1;font-size:1.1rem;font-weight:800;" onclick="goToWheel()">
         Spin &nbsp;<span id="spin-btn-count" style="opacity:0.8;font-size:0.9rem;"></span>
       </button>
       <button id="clear-btn" class="btn btn-ghost" onclick="clearDropZone()" style="border-radius:16px;padding:16px;">🗑️</button>
     </div>
+    </div><!-- end clips-and-spin-section -->
 
   </div>
 </div>
@@ -577,83 +597,96 @@ h2{font-size:1.4rem;font-weight:700;}
 
 <!-- ============ SCREEN: SETUP ============ -->
 <div id="screen-setup" class="screen">
+  <div style="position:sticky;top:0;z-index:20;background:var(--bg);box-shadow:0 0 0 100vw var(--bg);clip-path:inset(0 -100vw);">
   <div class="topbar">
-    <button id="setup-back-btn" class="back-btn" onclick="saveSetup()" style="width:auto;padding:0 14px;font-size:0.875rem;font-weight:700;">Back</button>
-    <div style="font-size:1rem;font-weight:700;">Setup</div>
-    <div style="width:60px;"></div>
+    <button id="setup-back-btn" class="back-btn" onclick="saveSetup()" style="width:auto;padding:0 14px;font-weight:700;">Back</button>
+    <div style="font-weight:700;">Setup</div>
+    <a href="https://buymeacoffee.com/clipspin" target="_blank" style="width:40px;height:40px;background:var(--card2);border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;text-decoration:none;">☕</a>
+  </div>
+  <!-- Setup tab bar — sticky with topbar -->
+  <div style="display:flex;gap:0;border-bottom:1px solid var(--border);padding:0 20px;background:var(--bg);">
+    <button id="setup-tab-tasks" onclick="switchSetupTab('tasks')" style="flex:1;padding:10px;font-family:'Inter',sans-serif;font-weight:700;background:none;border:none;color:var(--text);border-bottom:2px solid var(--mint);cursor:pointer;">Habits</button>
+    <button id="setup-tab-rewards" onclick="switchSetupTab('rewards')" style="flex:1;padding:10px;font-family:'Inter',sans-serif;font-weight:700;background:none;border:none;color:var(--muted);border-bottom:2px solid transparent;cursor:pointer;">Rewards</button>
+    <button id="setup-tab-general" onclick="switchSetupTab('general')" style="flex:1;padding:10px;font-family:'Inter',sans-serif;font-weight:700;background:none;border:none;color:var(--muted);border-bottom:2px solid transparent;cursor:pointer;">General</button>
+  </div>
   </div>
 
-  <div style="padding:8px 20px 80px;display:flex;flex-direction:column;gap:24px;overflow-y:auto;">
-    
-    <!-- Stats banner -->
-    <div id="setup-stats-banner" class="card" style="background:linear-gradient(135deg,rgba(0,229,160,0.08),rgba(75,124,247,0.08));border-color:rgba(0,229,160,0.15);display:flex;gap:0;overflow:hidden;padding:0;border-radius:18px;">
-      <div style="flex:1;padding:14px 16px;text-align:center;border-right:1px solid rgba(255,255,255,0.06);">
-        <div id="stat-habits-done" style="font-size:1.8rem;font-weight:800;color:var(--mint);">0</div>
-        <div style="font-size:0.875rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:2px;">Habits Done</div>
-      </div>
-      <div style="flex:1;padding:14px 16px;text-align:center;border-right:1px solid rgba(255,255,255,0.06);">
-        <div id="stat-clips-total" style="font-size:1.8rem;font-weight:800;color:var(--gold);">0</div>
-        <div style="font-size:0.875rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:2px;">Clips Earned</div>
-      </div>
-      <div style="flex:1;padding:14px 16px;text-align:center;">
-        <div id="stat-jar-total" style="font-size:1.8rem;font-weight:800;color:var(--blue);">$0</div>
-        <div style="font-size:0.875rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:2px;">In Your Jar</div>
-      </div>
-    </div>
-    <div>
-      <div style="font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--muted);margin-bottom:12px;">Your Habits</div>
-      <div id="habit-setup-list" style="display:flex;flex-direction:column;gap:10px;"></div>
-      <button class="btn btn-ghost" style="width:100%;margin-top:10px;border-radius:14px;" onclick="addHabit()">+ Add Habit</button>
-    </div>
+  <div style="padding:12px 20px 80px;display:flex;flex-direction:column;gap:0;overflow-y:auto;">
 
-    <!-- Rewards -->
-    <div>
-      <div style="font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--muted);margin-bottom:4px;">Reward Tiers</div>
-      <div style="font-size:0.875rem;color:var(--muted);margin-bottom:12px;line-height:1.5;">Must be highly addicting, time-wasting, and guilt-inducing enough to want to earn!</div>
-      
-      <div style="display:flex;flex-direction:column;gap:10px;" id="reward-tiers-container">
-        <!-- rendered by renderRewardTiers() -->
+    <!-- TASKS TAB -->
+    <div id="setup-panel-tasks" style="display:flex;flex-direction:column;gap:16px;">
+      <div>
+        <div id="habit-setup-list" style="display:flex;flex-direction:column;gap:10px;"></div>
+        <button class="btn btn-ghost" style="width:100%;margin-top:10px;border-radius:14px;" onclick="addHabit()">+ Add Habit</button>
       </div>
     </div>
 
-    <!-- Jar Goals -->
-    <div>
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-        <div style="font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--muted);">🪙 Jar Prize Goals</div>
-        <button class="btn btn-ghost btn-sm" onclick="addJarGoal()" style="border-radius:10px;font-size:0.875rem;padding:6px 14px;" id="jar-add-goal-btn">+ Add Goal</button>
+    <!-- REWARDS TAB -->
+    <div id="setup-panel-rewards" style="display:none;flex-direction:column;gap:20px;">
+      <!-- The 3 Rules at top -->
+      <div class="card" style="border-color:rgba(248,183,34,0.15);">
+        <div style="font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">⚡ The 3 Rules</div>
+        <div style="font-size:14px;color:var(--muted);line-height:1.7;">
+          <div>1. Rewards must be <strong style="color:var(--text);">highly addicting</strong> (dopamine rush)</div>
+          <div>2. Rewards must feel <strong style="color:var(--text);">slightly guilty</strong> (time/money wasting)</div>
+          <div>3. You <strong style="color:var(--red);">NEVER</strong> do them except through the app</div>
+        </div>
+        <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);">
+          <div style="font-size:14px;color:var(--muted);line-height:1.6;">
+            Original system by <a href="https://www.youtube.com/@spoonfedstudy" target="_blank" style="color:var(--mint);font-weight:600;text-decoration:none;">SpoonFedStudy</a> on YouTube. This app is not affiliated with or endorsed by him, it exists to help you understand and automate his method.
+          </div>
+        </div>
       </div>
-      <div style="font-size:0.875rem;color:var(--muted);margin-bottom:12px;line-height:1.5;">Up to 3 goals. Progress bar shows current goal only. Reaching all goals completes the jar and resets it!</div>
-      <div id="jar-goals-list" style="display:flex;flex-direction:column;gap:8px;"></div>
-      <!-- Jar complete reward -->
-      <div class="card2" style="margin-top:10px;border-color:rgba(248,183,34,0.2);">
-        <div style="font-size:0.875rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.1em;font-weight:700;margin-bottom:6px;">🌙 Jar Complete Reward</div>
-        <div style="font-size:0.875rem;color:var(--muted);margin-bottom:8px;">Shown when all jar goals are reached. Then jar resets for a new journey.</div>
-        <input class="setup-input" id="jar-complete-reward" placeholder="e.g. Book that flight!" type="text">
+      <!-- Reward Tiers -->
+      <div>
+        <div style="font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--muted);margin-bottom:12px;">Reward Tiers</div>
+        <div style="display:flex;flex-direction:column;gap:10px;" id="reward-tiers-container"></div>
+      </div>
+      <!-- Jar Goals -->
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+          <div style="font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--muted);">🪙 Jar Prize Goals</div>
+          <button class="btn btn-ghost btn-sm" onclick="addJarGoal()" style="border-radius:10px;font-size:0.875rem;padding:6px 14px;" id="jar-add-goal-btn">+ Add Goal</button>
+        </div>
+        <div style="font-size:0.875rem;color:var(--muted);margin-bottom:12px;line-height:1.5;">Up to 3 goals. Reaching all completes the jar!</div>
+        <div id="jar-goals-list" style="display:flex;flex-direction:column;gap:8px;"></div>
+        <div class="card2" style="margin-top:10px;border-color:rgba(248,183,34,0.2);">
+          <div style="font-size:0.875rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.1em;font-weight:700;margin-bottom:6px;">🌙 Jar Complete Reward</div>
+          <input class="setup-input" id="jar-complete-reward" placeholder="e.g. Book that flight!" type="text" autocapitalize="sentences">
+        </div>
       </div>
     </div>
 
-    <!-- Rules reminder -->
-    <div class="card" style="border-color:rgba(248,183,34,0.15);">
-      <div style="font-size:0.875rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">⚡ The 3 Rules</div>
-      <div style="font-size:0.875rem;color:var(--muted);line-height:1.7;">
-        <div>① Rewards must be <strong style="color:var(--text);">highly addicting</strong> (dopamine rush)</div>
-        <div>② Rewards must feel <strong style="color:var(--text);">slightly guilty</strong> (time/money wasting)</div>
-        <div>③ You <strong style="color:var(--red);">NEVER</strong> do them except through the app</div>
+    <!-- GENERAL TAB -->
+    <div id="setup-panel-general" style="display:none;flex-direction:column;gap:20px;">
+      <!-- Mute sounds -->
+      <div class="card2" style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+        <div>
+          <div style="font-size:0.9rem;font-weight:700;">🔇 Mute Sounds</div>
+          <div style="font-size:0.875rem;color:var(--muted);margin-top:2px;">Silence all game audio</div>
+        </div>
+        <label style="position:relative;display:inline-block;width:46px;height:26px;cursor:pointer;">
+          <input type="checkbox" id="mute-toggle" onchange="toggleMute(this.checked)" style="opacity:0;width:0;height:0;">
+          <span id="mute-track" style="position:absolute;inset:0;background:rgba(255,255,255,0.1);border-radius:13px;transition:background 0.2s;">
+            <span id="mute-thumb" style="position:absolute;left:3px;top:3px;width:20px;height:20px;background:white;border-radius:50%;transition:transform 0.2s;"></span>
+          </span>
+        </label>
       </div>
-    </div>
-
-    <!-- Danger zone -->
-    <div class="card" style="border-color:rgba(240,72,74,0.2);">
-      <div style="font-size:0.875rem;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">⚠️ Danger Zone</div>
-      <div style="font-size:0.875rem;color:var(--muted);margin-bottom:14px;line-height:1.5;">Permanently erases all progress — clips, jar, habit history. Rewards and habits setup are kept.</div>
-      <button id="reset-btn-step1" class="btn btn-ghost" style="width:100%;border-radius:14px;font-size:0.875rem;border:1px solid rgba(240,72,74,0.3);color:var(--red);" onclick="resetStep1()">
-        🗑️ Delete All Progress
-      </button>
-      <div id="reset-confirm-box" style="display:none;margin-top:10px;background:rgba(240,72,74,0.08);border:1px solid rgba(240,72,74,0.3);border-radius:14px;padding:14px;">
-        <div style="font-size:0.875rem;font-weight:700;color:var(--red);margin-bottom:10px;">Are you sure? This cannot be undone.</div>
-        <div style="display:flex;gap:8px;">
-          <button class="btn btn-danger" style="flex:1;border-radius:12px;font-size:0.875rem;" onclick="doResetProgress()">Yes, delete everything</button>
-          <button class="btn btn-ghost" style="flex:1;border-radius:12px;font-size:0.875rem;" onclick="cancelReset()">Cancel</button>
+      <!-- Report Bug -->
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdADaPcTiNuUgZCI4W-yUiX3jo7hrDxIcHzlr8ytyowG5a_dQ/viewform?usp=header" target="_blank" class="btn btn-ghost" style="width:100%;border-radius:14px;font-size:0.9rem;text-decoration:none;">
+        🐛 Report Bug & Feedback
+      </a>
+      <!-- Danger zone -->
+      <div class="card" style="border-color:rgba(240,72,74,0.2);">
+        <div style="font-size:0.875rem;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">⚠️ Danger Zone</div>
+        <div style="font-size:0.875rem;color:var(--muted);margin-bottom:14px;line-height:1.5;">Erases clips, jar, habit history. Keeps habits and rewards.</div>
+        <button id="reset-btn-step1" class="btn btn-ghost" style="width:100%;border-radius:14px;font-size:0.875rem;border:1px solid rgba(240,72,74,0.3);color:var(--red);" onclick="resetStep1()">🗑️ Delete All Progress</button>
+        <div id="reset-confirm-box" style="display:none;margin-top:10px;background:rgba(240,72,74,0.08);border:1px solid rgba(240,72,74,0.3);border-radius:14px;padding:14px;">
+          <div style="font-size:0.875rem;font-weight:700;color:var(--red);margin-bottom:10px;">Are you sure? This cannot be undone.</div>
+          <div style="display:flex;gap:8px;">
+            <button class="btn btn-danger" style="flex:1;border-radius:12px;font-size:0.875rem;" onclick="doResetProgress()">Yes, delete everything</button>
+            <button class="btn btn-ghost" style="flex:1;border-radius:12px;font-size:0.875rem;" onclick="cancelReset()">Cancel</button>
+          </div>
         </div>
       </div>
     </div>
@@ -684,6 +717,18 @@ h2{font-size:1.4rem;font-weight:700;}
 
 <!-- TOAST -->
 <div id="toast">Toast message</div>
+
+<!-- FIRST-TIME HINT -->
+<div id="first-hint" style="display:none;position:fixed;inset:0;z-index:800;background:rgba(7,8,15,0.85);backdrop-filter:blur(12px);align-items:center;justify-content:center;padding:24px;">
+  <div style="background:#0e1020;border:1px solid rgba(0,229,160,0.25);border-radius:24px;padding:28px 24px;max-width:360px;width:100%;box-shadow:0 0 60px rgba(0,229,160,0.1);">
+    <div style="font-size:1.2rem;font-weight:800;margin-bottom:16px;">Welcome to HabitSpin!</div>
+    <div style="color:var(--muted);line-height:1.7;margin-bottom:20px;">
+      <div style="margin-bottom:10px;">Go to <strong style="color:var(--text);">Setup</strong> to edit your habits and rewards.</div>
+      <div>📱 <strong style="color:var(--text);">Add to Home Screen</strong> for an app-like experience. On iOS, open in Safari → tap <strong style="color:var(--mint);">Share → Add to Home Screen.</strong></div>
+    </div>
+    <button class="btn btn-primary" style="width:100%;" onclick="dismissFirstHint()">Let's Go!</button>
+  </div>
+</div>
 
 <script>
 // ==========================================
@@ -727,9 +772,10 @@ let state = {
   originalSubmittedClips: [],
   currentSpinTier: null,
   pendingBonusTierReward: null,
-  wonRewards: [],        // [{id, reward, tier, date, redeemed, redeemedDate}]
+  wonRewards: [],
   wonRewardIdCounter: 1,
-  habitHistory: {},      // {habitId: {'2026-04-28': completions}}
+  tierProbs: {t1:40, t2:30, t3:20, bonus:8, jackpot:2},
+  habitMonth: null,    // compact monthly schema (see initHabitMonth)
   spinning: false,
   lastResult: null,
   streak: 0,
@@ -764,6 +810,7 @@ function initAudio() {
 }
 
 function playTone(freq, dur=0.1, vol=0.2, type='sine', delay=0) {
+  if (soundMuted) return;
   if (!audioCtx) return;
   const osc = audioCtx.createOscillator();
   const gain = audioCtx.createGain();
@@ -878,25 +925,18 @@ function previewSpinQueue() {
 }
 
 function getWeightedResult(tierCap) {
-  const r = Math.random() * 100;
+  const p = state.tierProbs || {t1:40, t2:30, t3:20, bonus:8, jackpot:2};
+  const total = p.t1 + p.t2 + p.t3 + p.bonus + p.jackpot;
+  const r = Math.random() * total;
   let result;
-  if (r < 40) result = 'T1';
-  else if (r < 70) result = 'T2';
-  else if (r < 90) result = 'T3';
-  else if (r < 98) result = 'BONUS';
-  else result = 'JACKPOT';
+  if      (r < p.t1)                             result = 'T1';
+  else if (r < p.t1 + p.t2)                      result = 'T2';
+  else if (r < p.t1 + p.t2 + p.t3)              result = 'T3';
+  else if (r < p.t1 + p.t2 + p.t3 + p.bonus)    result = 'BONUS';
+  else                                             result = 'JACKPOT';
 
-  // Clamp to tier cap
-  if (tierCap === 'T1') {
-    if (result === 'T2' || result === 'T3') result = 'T1';
-    if (result === 'JACKPOT') result = 'T1';
-  }
-  if (tierCap === 'T2') {
-    if (result === 'T3') result = 'T2';
-    if (result === 'JACKPOT') result = 'T2';
-  }
-  // T3 cap: all outcomes allowed including JACKPOT and BONUS
-
+  if (tierCap === 'T1' && (result === 'T2' || result === 'T3' || result === 'JACKPOT')) result = 'T1';
+  if (tierCap === 'T2' && (result === 'T3' || result === 'JACKPOT')) result = 'T2';
   return result;
 }
 
@@ -1048,7 +1088,7 @@ function drawWheel(canvasId, segments, rotation, size) {
     ctx.rotate(startAngle + arc / 2);
     ctx.textAlign = 'right';
     const fontSize = size > 280 ? 11 : 9;
-    ctx.font = `bold ${fontSize}px Syne, sans-serif`;
+    ctx.font = `bold ${fontSize}px Inter, sans-serif`;
     ctx.fillStyle = seg.textColor || '#fff';
     ctx.fillText(seg.label, r - 10, 4);
     ctx.restore();
@@ -1490,7 +1530,7 @@ function completeHabit(id) {
 
   habit.doneToday = doneToday + 1;
   state.habitsCompletedTotal = (state.habitsCompletedTotal || 0) + 1;
-  recordHabitHistory(habit.id, habit.doneToday);
+  recordHabitDay(habit.id, habit.doneToday);
 
   const newClip = Math.random() < 0.05 ? CLIP_GOLD : CLIP_COLORS[Math.floor(Math.random() * CLIP_COLORS.length)];
   state.clips.push(newClip);
@@ -1507,11 +1547,11 @@ function checkHabitDailyReset() {
     state.habits.forEach(h => { h.doneToday = 0; delete h.done; });
     state.lastHabitResetDate = today;
   }
-  // Ensure all habits have doneToday (migration from old format)
   state.habits.forEach(h => {
-    if (h.doneToday === undefined) h.doneToday = (h.done ? (h.timesPerDay || 1) : 0);
+    if (h.doneToday === undefined) h.doneToday = 0;
     if (h.timesPerDay === undefined) h.timesPerDay = 1;
   });
+  ensureHabitMonth();
 }
 
 function showClipPopup(color) {
@@ -2043,7 +2083,8 @@ function undoHabit(id) {
 
   habit.doneToday = Math.max(0, (habit.doneToday || 1) - 1);
   state.habitsCompletedTotal = Math.max(0, (state.habitsCompletedTotal || 1) - 1);
-  state.clips.pop(); // remove last clip
+  state.clips.pop();
+  recordHabitDay(habit.id, habit.doneToday); // update grid
 
   playSound('drop');
   showToast('Habit unchecked. Clip removed.');
@@ -2069,21 +2110,12 @@ function addHabit() {
 function renderSetup() {
   const jcr = document.getElementById('jar-complete-reward');
   if (jcr) jcr.value = state.jarCompleteReward || '';
-
-  // Stats banner
-  const totalDone = state.habitsCompletedTotal || 0;
-  const totalClips = (state.clips.length || 0) + (state.submittedClips.length || 0);
-  const el1 = document.getElementById('stat-habits-done');
-  const el2 = document.getElementById('stat-clips-total');
-  const el3 = document.getElementById('stat-jar-total');
-  if (el1) el1.textContent = totalDone;
-  if (el2) el2.textContent = totalClips;
-  if (el3) el3.textContent = `$${state.jar}`;
-
   renderRewardTiers();
   renderHabitSetup();
   renderJarGoals();
+  // Don't auto-render sliders until general tab opened
 }
+
 
 function renderJarGoals() {
   const list = document.getElementById('jar-goals-list');
@@ -2209,15 +2241,29 @@ function renderHabitSetup() {
     div.style.cssText = 'display:flex;flex-direction:column;gap:8px;';
     div.innerHTML = `
       <div style="display:flex;align-items:center;gap:10px;">
-        <div style="font-size:1.4rem;cursor:pointer;" onclick="cycleIcon(${i})">${h.icon}</div>
+        <div style="position:relative;flex-shrink:0;">
+          <div
+            contenteditable="true"
+            spellcheck="false"
+            id="habit-emoji-${h.id}"
+            data-idx="${i}"
+            style="font-size:1.5rem;cursor:pointer;outline:none;border:1.5px dashed rgba(255,255,255,0.2);border-radius:10px;padding:6px;width:48px;text-align:center;line-height:1;background:rgba(255,255,255,0.04);transition:border-color 0.2s,box-shadow 0.2s;"
+            oninput="handleEmojiInput(this, ${i})"
+            onfocus="startEmojiEdit(this)"
+            onblur="endEmojiEdit(this)"
+          >${h.icon}</div>
+        </div>
         <div style="flex:1;display:flex;flex-direction:column;gap:6px;">
-          <input class="setup-input" style="padding:10px 12px;font-size:0.9rem;" placeholder="Habit name" value="${h.name}" oninput="state.habits[${i}].name=this.value">
-          <input class="setup-input" style="padding:10px 12px;font-size:0.9rem;" placeholder="Task (e.g. 15 Burpees)" value="${h.task}" oninput="state.habits[${i}].task=this.value">
+          <input class="setup-input" style="padding:10px 12px;" autocapitalize="sentences" placeholder="Habit name" value="${h.name}" oninput="state.habits[${i}].name=this.value">
+          <input class="setup-input" style="padding:10px 12px;" autocapitalize="sentences" placeholder="Task (e.g. 15 Burpees)" value="${h.task}" oninput="state.habits[${i}].task=this.value">
         </div>
         <button onclick="removeHabit(${i})" style="background:none;border:none;color:var(--muted);font-size:1.2rem;cursor:pointer;padding:4px;flex-shrink:0;">✕</button>
       </div>
+      <div id="emoji-hint-${h.id}" style="display:none;font-size:0.8rem;color:var(--mint);padding:2px 2px 0;">
+        ${('ontouchstart' in window) ? '👆 Tap the emoji box, then pick from keyboard' : '💡 Right-click or press Win+. / Ctrl+Cmd+Space inside the box'}
+      </div>
       <div style="display:flex;align-items:center;justify-content:space-between;padding:6px 2px 0;border-top:1px solid var(--border);">
-        <div style="font-size:0.875rem;color:var(--muted);">Times per day</div>
+        <div style="color:var(--muted);">Times per day</div>
         <div style="display:flex;align-items:center;gap:10px;">
           <button onclick="adjustTimesPerDay(${i},-1)" class="btn btn-ghost" style="width:28px;height:28px;border-radius:50%;padding:0;font-size:1rem;line-height:1;">−</button>
           <span style="font-size:1rem;font-weight:800;min-width:20px;text-align:center;">${timesPerDay}</span>
@@ -2229,42 +2275,48 @@ function renderHabitSetup() {
   });
 }
 
-function cycleIcon(i) {
-  // Use native emoji picker via hidden emoji input
-  let picker = document.getElementById('emoji-picker-input');
-  if (!picker) {
-    picker = document.createElement('input');
-    picker.id = 'emoji-picker-input';
-    picker.type = 'text';
-    picker.inputMode = 'emoji'; // triggers emoji keyboard on mobile
-    picker.style.cssText = 'position:fixed;opacity:0;pointer-events:none;left:50%;top:50%;width:1px;height:1px;';
-    document.body.appendChild(picker);
-  }
-  picker.value = '';
-  picker._habitIndex = i;
-  picker.oninput = () => {
-    const val = picker.value.trim();
-    if (val) {
-      // Take first grapheme cluster (emoji or char)
-      const chars = [...val];
-      state.habits[picker._habitIndex].icon = chars[0];
-      markSetupDirty();
-      renderHabitSetup();
-      picker.value = '';
-    }
-  };
-  picker.focus();
-  // On desktop fall back to cycling through icons
-  if (!('ontouchstart' in window)) {
-    picker.blur();
-    const icons = ['💪','📚','💻','🏃','🎨','🎵','🧘','✍️','🔬','💡','🍎','☕','🌱','⚡','🎯','🏋️','🚴','🧠','💰','🎤'];
-    const cur = icons.indexOf(state.habits[i].icon);
-    state.habits[i].icon = icons[(cur + 1) % icons.length];
-    markSetupDirty();
-    renderHabitSetup();
-  }
+
+
+function handleEmojiInput(el, idx) {
+  // Keep only the last grapheme cluster typed (the new emoji)
+  const chars = [...el.innerText];
+  if (chars.length === 0) { el.innerText = state.habits[idx].icon; return; }
+  const emoji = chars[chars.length - 1];
+  el.innerText = emoji;
+  state.habits[idx].icon = emoji;
+  markSetupDirty();
+  // Move caret to end
+  const range = document.createRange();
+  range.selectNodeContents(el);
+  range.collapse(false);
+  window.getSelection()?.removeAllRanges();
+  window.getSelection()?.addRange(range);
 }
 
+function startEmojiEdit(el) {
+  // Glow border to signal "you are editing the emoji"
+  el.style.borderColor = 'var(--mint)';
+  el.style.boxShadow = '0 0 0 3px rgba(0,229,160,0.2)';
+  el.style.animation = 'emojiPulse 1s ease-in-out infinite';
+
+  // Show inline hint
+  const habitId = el.id.replace('habit-emoji-', '');
+  const hint = document.getElementById('emoji-hint-' + habitId);
+  if (hint) hint.style.display = 'block';
+
+  // Scroll into view above keyboard on mobile
+  setTimeout(() => el.scrollIntoView({behavior:'smooth', block:'center'}), 150);
+}
+
+function endEmojiEdit(el) {
+  el.style.borderColor = 'rgba(255,255,255,0.2)';
+  el.style.boxShadow = '';
+  el.style.animation = '';
+
+  const habitId = el.id.replace('habit-emoji-', '');
+  const hint = document.getElementById('emoji-hint-' + habitId);
+  if (hint) hint.style.display = 'none';
+}
 
 function removeHabit(i) {
   if (state.habits.length <= 1) { showToast('Need at least 1 habit!'); return; }
@@ -2272,9 +2324,37 @@ function removeHabit(i) {
   renderHabitSetup();
 }
 
+
+function switchSetupTab(tab) {
+  const tabs = ["tasks","rewards","general"];
+  tabs.forEach(t => {
+    const panel = document.getElementById("setup-panel-"+t);
+    const btn   = document.getElementById("setup-tab-"+t);
+    if (panel) panel.style.display = t === tab ? "flex" : "none";
+    if (btn)   { btn.style.color = t === tab ? "var(--text)" : "var(--muted)"; btn.style.borderBottomColor = t === tab ? "var(--mint)" : "transparent"; }
+  });
+}
+
 function markSetupDirty() {
-  const btn = document.getElementById('setup-back-btn');
-  if (btn) btn.textContent = 'Save & Back';
+  const btn = document.getElementById("setup-back-btn");
+  if (btn) btn.textContent = "Save & Back";
+}
+
+let soundMuted = false;
+function toggleMute(muted) {
+  soundMuted = muted;
+  const track = document.getElementById("mute-track");
+  const thumb = document.getElementById("mute-thumb");
+  if (track) track.style.background = muted ? "var(--mint)" : "rgba(255,255,255,0.1)";
+  if (thumb) thumb.style.transform = muted ? "translateX(20px)" : "translateX(0)";
+  localStorage.setItem("habitspin_mute", muted ? "1" : "0");
+}
+
+function initMuteState() {
+  soundMuted = localStorage.getItem("habitspin_mute") === "1";
+  const toggle = document.getElementById("mute-toggle");
+  if (toggle) toggle.checked = soundMuted;
+  if (soundMuted) toggleMute(true);
 }
 
 function saveSetup() {
@@ -2337,12 +2417,14 @@ function showScreen(name) {
   }
   if (name === 'setup') {
     renderSetup();
-    // Reset dirty state when opening
     document.getElementById('setup-back-btn').textContent = 'Back';
-    // Mark dirty on any input change
+    switchSetupTab('tasks');
+    // Sync mute toggle
+    const muteToggle = document.getElementById('mute-toggle');
+    if (muteToggle) muteToggle.checked = soundMuted;
+    toggleMute(soundMuted);
     setTimeout(() => {
-      const setupEl = document.getElementById('screen-setup');
-      setupEl.querySelectorAll('input').forEach(inp => {
+      document.getElementById('screen-setup').querySelectorAll('input').forEach(inp => {
         inp.addEventListener('input', markSetupDirty, {once: false});
       });
     }, 100);
@@ -2437,6 +2519,8 @@ function updateJarAmount(newValue, animate = false) {
 function showToast(msg, dur=2500) {
   const t = document.getElementById('toast');
   t.textContent = msg;
+  // Shrink font for longer messages so they stay readable
+  t.style.fontSize = msg.length > 40 ? '0.8rem' : msg.length > 25 ? '0.875rem' : '0.95rem';
   t.classList.add('show');
   clearTimeout(t._timeout);
   t._timeout = setTimeout(() => t.classList.remove('show'), dur);
@@ -2457,11 +2541,13 @@ let activeTab = 'habits';
 function switchTab(tab) {
   activeTab = tab;
   document.getElementById('panel-habits').style.display = tab === 'habits' ? '' : 'none';
-  document.getElementById('panel-stats').style.display  = tab === 'stats'  ? '' : 'none';
+  document.getElementById('panel-stats').style.display  = tab === 'stats'  ? 'flex' : 'none';
   document.getElementById('tab-habits').style.color = tab === 'habits' ? 'var(--text)' : 'var(--muted)';
   document.getElementById('tab-stats').style.color  = tab === 'stats'  ? 'var(--text)' : 'var(--muted)';
   document.getElementById('tab-habits').style.borderBottomColor = tab === 'habits' ? 'var(--mint)' : 'transparent';
   document.getElementById('tab-stats').style.borderBottomColor  = tab === 'stats'  ? 'var(--mint)' : 'transparent';
+  const clipSec = document.getElementById('clips-and-spin-section');
+  if (clipSec) clipSec.style.display = tab === 'habits' ? '' : 'none';
   if (tab === 'stats') { renderRewardsPanel(); renderHabitGrids(); }
 }
 
@@ -2501,6 +2587,13 @@ function cleanOldRewards() {
 
 function renderRewardsPanel() {
   cleanOldRewards();
+  // Update stats banner
+  const el1 = document.getElementById('stat-habits-done');
+  const el2 = document.getElementById('stat-clips-total');
+  const el3 = document.getElementById('stat-jar-total');
+  if (el1) el1.textContent = state.habitsCompletedTotal || 0;
+  if (el2) el2.textContent = state.clips.length + state.submittedClips.length;
+  if (el3) el3.textContent = `$${state.jar}`;
   const list = document.getElementById('rewards-list');
   if (!list) return;
   const active = state.wonRewards.filter(r => !r.redeemed);
@@ -2533,11 +2626,11 @@ function renderRewardsPanel() {
         <!-- Ticket body -->
         <div style="flex:1;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:12px;">
           <div>
-            <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${r.redeemed ? 'var(--muted)' : color};margin-bottom:3px;">${r.tier}</div>
+            <div style="font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${r.redeemed ? 'var(--muted)' : color};margin-bottom:3px;">${r.tier}</div>
             <div style="font-size:0.9rem;font-weight:700;color:${r.redeemed ? 'var(--muted)' : 'var(--text)'};">${r.reward}</div>
-            <div style="font-size:0.75rem;color:var(--muted);margin-top:2px;">${dateStr}</div>
+            <div style="font-size:0.875rem;color:var(--muted);margin-top:2px;">${dateStr}</div>
           </div>
-          <div style="flex-shrink:0;font-size:0.75rem;font-weight:700;
+          <div style="flex-shrink:0;font-size:0.875rem;font-weight:700;
             padding:6px 12px;border-radius:50px;
             background:${r.redeemed ? 'rgba(255,255,255,0.05)' : color+'22'};
             color:${r.redeemed ? 'var(--muted)' : color};
@@ -2560,62 +2653,103 @@ function todayKey() {
   return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 }
 
-function recordHabitHistory(habitId, completions) {
-  if (!state.habitHistory) state.habitHistory = {};
-  if (!state.habitHistory[habitId]) state.habitHistory[habitId] = {};
-  state.habitHistory[habitId][todayKey()] = completions;
+// ==========================================
+// HABIT MONTH SCHEMA (compact)
+// ==========================================
+function monthKey() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;
+}
+
+function initHabitMonth() {
+  const now = new Date();
+  const n = new Date(now.getFullYear(), now.getMonth()+1, 0).getDate();
+  state.habitMonth = {
+    m: monthKey(),
+    d: now.getDate(),
+    n,
+    ts: state.habits.map(h => ({
+      id: h.id,
+      t: h.name,
+      c: h.timesPerDay || 1,
+      d: Array(n).fill(0)
+    }))
+  };
+}
+
+function ensureHabitMonth() {
+  const mk = monthKey();
+  if (!state.habitMonth || state.habitMonth.m !== mk) {
+    initHabitMonth();
+  }
+  // Ensure all current habits exist in ts
+  state.habits.forEach(h => {
+    const existing = state.habitMonth.ts.find(t => t.id === h.id);
+    if (!existing) {
+      state.habitMonth.ts.push({
+        id: h.id, t: h.name, c: h.timesPerDay || 1,
+        d: Array(state.habitMonth.n).fill(0)
+      });
+    } else {
+      existing.t = h.name;
+      existing.c = h.timesPerDay || 1;
+    }
+  });
+}
+
+function recordHabitDay(habitId, completions) {
+  ensureHabitMonth();
+  const task = state.habitMonth.ts.find(t => t.id === habitId);
+  if (!task) return;
+  const dayIdx = new Date().getDate() - 1;
+  const c = task.c || 1;
+  task.d[dayIdx] = completions >= c ? 'd' : completions;
 }
 
 function renderHabitGrids() {
   const container = document.getElementById('habit-grids');
   if (!container) return;
-  const now = new Date();
-  const year = now.getFullYear();
-  const month = now.getMonth();
-  const daysInMonth = new Date(year, month + 1, 0).getDate();
-  const monthName = now.toLocaleDateString('en-US', {month:'long'});
+  ensureHabitMonth();
+  const hm = state.habitMonth;
+  const monthName = new Date().toLocaleDateString('en-US', {month:'long'});
 
-  // Update label
   const label = document.getElementById('month-grid-label');
   if (label) label.textContent = `📅 Month of ${monthName}`;
 
   container.innerHTML = state.habits.map((h, hi) => {
     const color = HABIT_COLORS[hi % HABIT_COLORS.length];
-    const history = (state.habitHistory || {})[h.id] || {};
-    const timesPerDay = h.timesPerDay || 1;
+    const task = hm.ts.find(t => t.id === h.id);
+    const c = h.timesPerDay || 1;
+    const todayDay = new Date().getDate();
 
-    const cells = Array.from({length: daysInMonth}, (_, idx) => {
+    const cells = Array.from({length: hm.n}, (_, idx) => {
       const dayNum = idx + 1;
-      const dateKey = `${year}-${String(month+1).padStart(2,'0')}-${String(dayNum).padStart(2,'0')}`;
-      const isToday = dateKey === todayKey();
-      const done = history[dateKey] || 0;
-
-      // 10-step gradient: ratio 0→1 maps to opacity 0.07→1.0
-      const ratio = Math.min(done / timesPerDay, 1);
-      const step = Math.ceil(ratio * 10); // 0–10
-      const opacity = step === 0 ? 0 : 0.07 + (step / 10) * 0.93;
+      const isToday = dayNum === todayDay;
+      const val = task ? task.d[idx] : 0;
+      // 10-step opacity: "d" = full, number = partial
+      let ratio = 0;
+      if (val === 'd') ratio = 1;
+      else if (typeof val === 'number' && val > 0) ratio = val / c;
+      const step = Math.round(ratio * 10);
+      const opacity = step === 0 ? 1 : 0.07 + (step / 10) * 0.93;
       const bg = step === 0 ? 'rgba(255,255,255,0.07)' : color;
 
-      return `<div style="
-        width:12px;height:12px;border-radius:2px;
-        background:${bg};opacity:${step === 0 ? 1 : opacity};
-        flex-shrink:0;
-        ${isToday ? 'outline:1.5px solid rgba(255,255,255,0.7);outline-offset:1px;' : ''}
-      " title="Day ${dayNum}${done ? ': '+done+'/'+timesPerDay : ''}"></div>`;
+      return `<div style="width:12px;height:12px;border-radius:2px;background:${bg};opacity:${opacity};flex-shrink:0;${isToday ? 'outline:1.5px solid rgba(255,255,255,0.7);outline-offset:1px;' : ''}" title="Day ${dayNum}"></div>`;
     }).join('');
 
-    return `
-      <div>
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-          <span style="font-size:1rem;">${h.icon}</span>
-          <span style="font-size:0.875rem;font-weight:700;">${h.name}</span>
-          <span style="width:8px;height:8px;border-radius:50%;background:${color};flex-shrink:0;"></span>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;gap:3px;">
-          ${cells}
-        </div>
+    // Filler cells so last row matches first row width
+    const COLS = 10;
+    const remainder = hm.n % COLS;
+    const fillers = remainder === 0 ? "" : Array(COLS - remainder).fill(`<div style="width:12px;height:12px;flex-shrink:0;"></div>`).join("");
+
+
+    return `<div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+        <span style="font-size:1rem;">${h.icon}</span>
+        <span style="font-size:0.875rem;font-weight:700;">${h.name}</span>
       </div>
-    `;
+      <div style="display:flex;flex-wrap:wrap;gap:3px;">${cells}${fillers}</div>
+    </div>`;
   }).join('');
 }
 
@@ -2627,13 +2761,6 @@ function renderAll() {
   renderDropZone();
   updateJar();
   
-  const streak = document.getElementById('streak-badge');
-  if (state.streak > 0) {
-    streak.style.display = 'inline-flex';
-    document.getElementById('streak-count').textContent = state.streak;
-  } else {
-    streak.style.display = 'none';
-  }
   
   // Reset habits at midnight (simplified: reset button in setup)
   const allDone = state.habits.every(h => h.done);
@@ -2658,7 +2785,8 @@ function saveSettings() {
       jarGoals: state.jarGoals,
       jarGoalIdCounter: state.jarGoalIdCounter,
       jarCompleteReward: state.jarCompleteReward,
-      rewards: state.rewards
+      rewards: state.rewards,
+      tierProbs: state.tierProbs
     }));
   } catch(e) { console.warn('Settings save failed:', e); }
 }
@@ -2678,6 +2806,7 @@ function loadSettings() {
         if (typeof state.rewards[k] === 'string') state.rewards[k] = [state.rewards[k]];
       });
     }
+    if (s.tierProbs) state.tierProbs = { ...state.tierProbs, ...s.tierProbs };
     return true;
   } catch(e) { console.warn('Settings load failed:', e); return false; }
 }
@@ -2694,7 +2823,8 @@ function saveState() {
       habitsCompletedTotal: state.habitsCompletedTotal || 0,
       wonRewards: state.wonRewards || [],
       wonRewardIdCounter: state.wonRewardIdCounter || 1,
-      habitHistory: state.habitHistory || {}
+      tierProbs: state.tierProbs,
+      habitMonth: state.habitMonth || null
     }));
     saveSettings(); // always keep settings in sync too
   } catch(e) { console.warn('Save failed:', e); }
@@ -2723,7 +2853,8 @@ function loadState() {
     state.habitsCompletedTotal = saved.habitsCompletedTotal || 0;
     state.wonRewards = saved.wonRewards || [];
     state.wonRewardIdCounter = saved.wonRewardIdCounter || 1;
-    state.habitHistory = saved.habitHistory || {};
+    if (saved.tierProbs) state.tierProbs = { ...state.tierProbs, ...saved.tierProbs };
+    state.habitMonth = saved.habitMonth || null;
     return true;
   } catch(e) { console.warn('Load failed:', e); return false; }
 }
@@ -2750,6 +2881,7 @@ function doResetProgress() {
   state.habitsCompletedTotal = 0;
   state.lastHabitResetDate = null;
   state.habits.forEach(h => { h.doneToday = 0; });
+  state.habitMonth = null;
   localStorage.removeItem(SAVE_KEY);
   // Settings (habits/goals/rewards) deliberately NOT removed
   checkHabitDailyReset();
@@ -2767,12 +2899,23 @@ document.addEventListener('focusin', (e) => {
   }
 });
 
+function dismissFirstHint() {
+  document.getElementById('first-hint').style.display = 'none';
+  localStorage.setItem('habitspin_seen', '1');
+}
+
 window.addEventListener('load', () => {
   loadState();
   checkHabitDailyReset();
+  initMuteState();
   renderAll();
   initJarOdometer();
   drawWheel('wheelCanvas', WHEEL_SEGMENTS, 0, 320);
+
+  // Show onboarding hint for first-time users
+  if (!localStorage.getItem('habitspin_seen')) {
+    setTimeout(() => { document.getElementById('first-hint').style.display = 'flex'; }, 800);
+  }
 
   setTimeout(() => {
     showToast('👋 Tap habits to complete them & earn clips!');
