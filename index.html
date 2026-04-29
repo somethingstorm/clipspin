@@ -54,12 +54,12 @@ body::before{
 }
 .screen{display:none;flex-direction:column;min-height:100vh;position:relative;z-index:1;}
 .screen.active{display:flex;}
-
+ 
 /* TYPOGRAPHY */
 .mono{font-family:'Space Mono',monospace;}
 h1{font-size:2rem;font-weight:800;letter-spacing:-0.02em;}
 h2{font-size:1.4rem;font-weight:700;}
-
+ 
 /* CARDS */
 .card{
   background:var(--card);
@@ -73,7 +73,7 @@ h2{font-size:1.4rem;font-weight:700;}
   border-radius:14px;
   padding:12px 14px;
 }
-
+ 
 /* BUTTONS */
 .btn{
   display:flex;align-items:center;justify-content:center;
@@ -98,7 +98,7 @@ h2{font-size:1.4rem;font-weight:700;}
 .btn-sm{padding:8px 16px;font-size:0.875rem;}
 .btn-ghost{background:rgba(255,255,255,0.07);color:var(--text);padding:10px 18px;font-size:0.875rem;}
 .btn-danger{background:var(--red);color:#fff;padding:14px 24px;font-size:0.9rem;}
-
+ 
 /* TOP BAR */
 .topbar{
   display:flex;align-items:center;justify-content:space-between;
@@ -113,7 +113,7 @@ h2{font-size:1.4rem;font-weight:700;}
   color:var(--text);
 }
 .back-btn:active{background:var(--card);}
-
+ 
 /* JAR */
 .jar-wrap{position:relative;width:64px;height:80px;flex-shrink:0;}
 .jar-svg{width:64px;height:80px;}
@@ -123,7 +123,7 @@ h2{font-size:1.4rem;font-weight:700;}
 }
 .jar-label{position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);
   font-size:0.875rem;font-weight:700;color:var(--gold);white-space:nowrap;letter-spacing:0.05em;text-transform:uppercase;}
-
+ 
 /* CLIP */
 .clip{
   width:36px;height:50px;position:relative;flex-shrink:0;
@@ -136,14 +136,14 @@ h2{font-size:1.4rem;font-weight:700;}
 .clip-orange{color:#f97316;} .clip-purple{color:#a855f7;} .clip-pink{color:#ec4899;}
 .clip-gold{color:#f8b722;animation:goldPulse 1.5s ease-in-out infinite;}
 @keyframes goldPulse{0%,100%{filter:drop-shadow(0 1px 3px #f8b722) brightness(1);}50%{filter:drop-shadow(0 2px 6px #ffdd44) brightness(1.3);}}
-
+ 
 /* DRAG GHOST */
 #drag-ghost{
   position:fixed;pointer-events:none;z-index:9999;
   opacity:0.85;transform:scale(1.15) rotate(10deg);
   transition:transform 0.1s;
 }
-
+ 
 /* DROP ZONE */
 .drop-zone{
   border:2px dashed rgba(0,229,160,0.3);
@@ -156,7 +156,7 @@ h2{font-size:1.4rem;font-weight:700;}
 }
 .drop-zone.over{border-color:var(--mint);background:rgba(0,229,160,0.06);box-shadow:0 0 20px rgba(0,229,160,0.1);}
 .drop-zone-hint{color:var(--muted);font-size:0.875rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin:auto;}
-
+ 
 /* TIER BADGE */
 .tier-badge{
   display:inline-flex;align-items:center;gap:6px;
@@ -168,7 +168,7 @@ h2{font-size:1.4rem;font-weight:700;}
 .tier-3{background:rgba(75,124,247,0.15);color:var(--blue);border:1px solid rgba(75,124,247,0.3);}
 .tier-jackpot{background:rgba(248,183,34,0.15);color:var(--gold);border:1px solid rgba(248,183,34,0.3);}
 .tier-bonus{background:rgba(162,89,247,0.15);color:var(--purple);border:1px solid rgba(162,89,247,0.3);}
-
+ 
 /* HABIT CARD */
 .habit-card{
   background:var(--card);border:1px solid var(--border);
@@ -188,11 +188,11 @@ h2{font-size:1.4rem;font-weight:700;}
   font-size:0.9rem;transition:all 0.2s;
 }
 .habit-card.done .habit-check{background:var(--mint);border-color:var(--mint);color:#000;}
-
+ 
 /* PROGRESS BAR */
 .progress-bar{height:6px;background:rgba(255,255,255,0.07);border-radius:100px;overflow:hidden;}
 .progress-fill{height:100%;border-radius:100px;transition:width 0.6s cubic-bezier(0.34,1.56,0.64,1);}
-
+ 
 /* WHEEL CANVAS */
 #wheelCanvas{
   border-radius:50%;display:block;margin:0 auto;
@@ -214,7 +214,7 @@ h2{font-size:1.4rem;font-weight:700;}
   background:#0a0b12;border:3px solid rgba(255,255,255,0.2);
   z-index:5;
 }
-
+ 
 /* ANIMATIONS */
 @keyframes pop{0%{transform:scale(0.5) rotate(-20deg);opacity:0;}70%{transform:scale(1.2) rotate(5deg);}100%{transform:scale(1) rotate(0deg);opacity:1;}}
 @keyframes slideUp{from{transform:translateY(30px);opacity:0;}to{transform:translateY(0);opacity:1;}}
@@ -225,14 +225,14 @@ h2{font-size:1.4rem;font-weight:700;}
 @keyframes resultReveal{0%{transform:scale(0.3);opacity:0;}60%{transform:scale(1.15);}100%{transform:scale(1);opacity:1;}}
 @keyframes bonusPulse{0%,100%{transform:scale(1);text-shadow:0 0 20px var(--purple);}50%{transform:scale(1.05);text-shadow:0 0 40px var(--purple),0 0 60px rgba(162,89,247,0.5);}}
 @keyframes timerTick{0%{transform:scale(1);}50%{transform:scale(1.08);}100%{transform:scale(1);}}
-
+ 
 /* TIMER */
 .timer-display{
   font-family:'Space Mono',monospace;font-size:3.5rem;font-weight:700;
   color:var(--text);letter-spacing:0.04em;
 }
 .timer-display.urgent{color:var(--red);animation:timerTick 1s ease-in-out infinite;}
-
+ 
 /* REWARD RESULT */
 .result-overlay{
   position:fixed;inset:0;z-index:200;
@@ -250,7 +250,7 @@ h2{font-size:1.4rem;font-weight:700;}
   text-align:center;animation:slideUp 0.4s 0.35s both;
   width:100%;max-width:300px;
 }
-
+ 
 /* NEAR MISS */
 .near-miss-text{
   position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
@@ -260,7 +260,7 @@ h2{font-size:1.4rem;font-weight:700;}
   -webkit-text-stroke:3px white;paint-order:stroke fill;
   text-shadow:0 0 20px var(--red),0 4px 16px rgba(0,0,0,0.9);
 }
-
+ 
 /* SCROLL HORIZONTAL */
 .scroll-h{
   display:flex;gap:8px;overflow-x:auto;padding:4px 2px 8px;
@@ -269,7 +269,7 @@ h2{font-size:1.4rem;font-weight:700;}
   scrollbar-width:none;
 }
 .scroll-h::-webkit-scrollbar{display:none;}
-
+ 
 /* STREAK */
 .streak-badge{
   display:inline-flex;align-items:center;gap:4px;
@@ -277,7 +277,7 @@ h2{font-size:1.4rem;font-weight:700;}
   background:rgba(248,183,34,0.12);color:var(--gold);
   font-size:0.875rem;font-weight:700;border:1px solid rgba(248,183,34,0.2);
 }
-
+ 
 /* NOTIFICATION TOAST */
 #toast{
   position:fixed;top:100px;left:50%;transform:translateX(-50%) translateY(-20px);
@@ -292,7 +292,7 @@ h2{font-size:1.4rem;font-weight:700;}
   max-width:88%;text-align:center;line-height:1.4;
 }
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
-
+ 
 /* CLIP EARNED POPUP */
 .clip-earned-popup{
   position:fixed;top:100px;left:50%;
@@ -309,7 +309,7 @@ h2{font-size:1.4rem;font-weight:700;}
 }
 .clip-earned-popup.show{transform:translateX(-50%) translateY(0);opacity:1;}
 .clip-earned-popup.hide{transform:translateX(-50%) translateY(-20px);opacity:0;transition:all 0.3s ease;}
-
+ 
 /* SETUP */
 .setup-input{
   width:100%;background:var(--card2);border:1px solid var(--border);
@@ -319,10 +319,10 @@ h2{font-size:1.4rem;font-weight:700;}
 }
 .setup-input:focus{border-color:var(--mint);}
 .setup-label{font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:6px;}
-
+ 
 /* BONUS WHEEL */
 #bonusCanvas{display:block;margin:0 auto;}
-
+ 
 /* SPINS LEFT */
 .spins-left{
   display:inline-flex;align-items:center;gap:6px;
@@ -331,32 +331,32 @@ h2{font-size:1.4rem;font-weight:700;}
   font-size:0.875rem;font-weight:600;color:var(--muted);
 }
 .spins-left span{color:var(--text);font-weight:800;}
-
+ 
 /* CONFETTI */
 .confetti-piece{
   position:fixed;width:10px;height:10px;
   border-radius:2px;pointer-events:none;z-index:999;
   animation:confettiFall 3s ease-in forwards;
 }
-
+ 
 /* MILESTONES */
 .milestone-line{
   position:absolute;left:0;right:0;
   display:flex;align-items:center;gap:6px;
 }
 .milestone-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
-
+ 
 /* NAV DOTS */
 .nav-dots{display:flex;gap:6px;justify-content:center;padding:8px;}
 .nav-dot{width:6px;height:6px;border-radius:50%;background:var(--muted);transition:all 0.2s;}
 .nav-dot.active{background:var(--mint);width:18px;border-radius:3px;}
-
+ 
 /* Match indicator */
 .match-indicator{
   padding:8px 14px;border-radius:10px;font-size:0.875rem;font-weight:700;
   text-align:center;transition:all 0.3s;
 }
-
+ 
 /* Odometer minimal theme */
 .odometer.odometer-auto-theme,.odometer.odometer-theme-minimal{font-family:inherit;line-height:1em;display:inline-block;position:relative}.odometer.odometer-auto-theme .odometer-digit,.odometer.odometer-theme-minimal .odometer-digit{display:inline-block;position:relative}.odometer.odometer-auto-theme .odometer-digit .odometer-digit-spacer,.odometer.odometer-theme-minimal .odometer-digit .odometer-digit-spacer{display:inline-block;visibility:hidden}.odometer.odometer-auto-theme .odometer-digit .odometer-digit-inner,.odometer.odometer-theme-minimal .odometer-digit .odometer-digit-inner{text-align:left;display:block;position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden}.odometer.odometer-auto-theme .odometer-digit .odometer-ribbon,.odometer.odometer-theme-minimal .odometer-digit .odometer-ribbon{display:block}.odometer.odometer-auto-theme .odometer-digit .odometer-ribbon-inner,.odometer.odometer-theme-minimal .odometer-digit .odometer-ribbon-inner{display:block;-webkit-backface-visibility:hidden}.odometer.odometer-auto-theme .odometer-digit .odometer-value,.odometer.odometer-theme-minimal .odometer-digit .odometer-value{display:block;-webkit-transform:translateZ(0)}.odometer.odometer-auto-theme .odometer-digit .odometer-value.odometer-last-value,.odometer.odometer-theme-minimal .odometer-digit .odometer-value.odometer-last-value{position:absolute}.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner,.odometer.odometer-theme-minimal.odometer-animating-up .odometer-ribbon-inner{-webkit-transition:all 1000ms ease-in-out;-moz-transition:all 1000ms ease-in-out;-ms-transition:all 1000ms ease-in-out;-o-transition:all 1000ms ease-in-out;transition:all 1000ms ease-in-out}.odometer.odometer-auto-theme.odometer-animating-up.odometer-animating .odometer-ribbon-inner,.odometer.odometer-theme-minimal.odometer-animating-up.odometer-animating .odometer-ribbon-inner{-webkit-transform:translateY(-100%);-moz-transform:translateY(-100%);-ms-transform:translateY(-100%);-o-transform:translateY(-100%);transform:translateY(-100%)}.odometer.odometer-auto-theme.odometer-animating-down .odometer-ribbon-inner,.odometer.odometer-theme-minimal.odometer-animating-down .odometer-ribbon-inner{-webkit-transform:translateY(-100%);-moz-transform:translateY(-100%);-ms-transform:translateY(-100%);-o-transform:translateY(-100%);transform:translateY(-100%)}.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner,.odometer.odometer-theme-minimal.odometer-animating-down.odometer-animating .odometer-ribbon-inner{-webkit-transition:all 1000ms ease-in-out;-moz-transition:all 1000ms ease-in-out;-ms-transition:all 1000ms ease-in-out;-o-transition:all 1000ms ease-in-out;transition:all 1000ms ease-in-out;-webkit-transform:translateY(0);-moz-transform:translateY(0);-ms-transform:translateY(0);-o-transform:translateY(0);transform:translateY(0)}
 /* Override odometer color to match our gold theme */
@@ -382,20 +382,20 @@ h2{font-size:1.4rem;font-weight:700;}
 </style>
 </head>
 <body>
-
+ 
 <!-- ============ SCREEN: DASHBOARD ============ -->
 <div id="screen-dashboard" class="screen active">
   <div style="position:sticky;top:0;z-index:20;background:var(--bg);box-shadow:0 0 0 100vw var(--bg);clip-path:inset(0 -100vw);">
     <div class="topbar">
       <div>
         <div style="font-size:1.5rem;font-weight:400;font-family:'Barrio',cursive;letter-spacing:0.02em;">HABIT<span style="color:var(--mint)">SPIN</span></div>
-        <div id="nav-date" style="color:#a0a8c0;font-weight:400;margin-top:2px;"></div>
+        <div id="nav-date" style="font-size:14px;color:#a0a8c0;font-weight:400;margin-top:2px;"></div>
       </div>
       <div style="display:flex;align-items:center;gap:10px;">
         <button class="btn btn-ghost btn-sm" onclick="showScreen('setup')" style="border-radius:12px;">⚙️ Setup</button>
       </div>
     </div>
-
+ 
     <!-- JAR + STATS ROW (sticky) -->
     <div style="padding:0 20px 12px;">
       <div class="card" style="display:flex;gap:16px;align-items:center;">
@@ -442,9 +442,9 @@ h2{font-size:1.4rem;font-weight:700;}
       <button id="tab-stats" onclick="switchTab('stats')" style="flex:1;padding:10px;font-family:'Inter',sans-serif;font-weight:700;background:none;border:none;color:var(--muted);border-bottom:2px solid transparent;cursor:pointer;">Rewards & Stats</button>
     </div>
   </div>
-
-  <div style="padding:0 20px 20px;flex:1;display:flex;flex-direction:column;gap:16px;overflow-y:auto;">
-
+ 
+  <div style="padding:16px 20px 20px;flex:1;display:flex;flex-direction:column;gap:16px;overflow-y:auto;" id="main-scroll">
+ 
     <!-- HABITS PANEL -->
     <div id="panel-habits">
       <div style="display:flex;justify-content:flex-end;align-items:center;margin-bottom:10px;">
@@ -452,7 +452,7 @@ h2{font-size:1.4rem;font-weight:700;}
       </div>
       <div id="habit-list" style="display:flex;flex-direction:column;gap:10px;"></div>
     </div>
-
+ 
     <!-- STATS PANEL -->
     <div id="panel-stats" style="display:none;flex-direction:column;gap:20px;">
       <!-- Stats banner (moved from setup) -->
@@ -481,7 +481,7 @@ h2{font-size:1.4rem;font-weight:700;}
         <div id="habit-grids" style="display:flex;flex-direction:column;gap:16px;"></div>
       </div>
     </div>
-
+ 
     <div id="clips-and-spin-section">
     <div class="card">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
@@ -495,7 +495,7 @@ h2{font-size:1.4rem;font-weight:700;}
         <div style="color:var(--muted);font-size:0.875rem;">Complete habits to earn clips!</div>
       </div>
     </div>
-
+ 
     <!-- SELECTED / DROP ZONE -->
     <div>
       <div style="font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:8px;margin-top:16px;">
@@ -504,7 +504,7 @@ h2{font-size:1.4rem;font-weight:700;}
       <div id="drop-zone" class="drop-zone">
         <div class="drop-zone-hint" id="drop-hint">Cash In</div>
       </div>
-
+ 
       <!-- Tier pills: 2 rows × 2 -->
       <div id="tier-info" style="margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:6px;align-items:stretch;">
         <div class="tier-badge tier-1" style="justify-content:center;padding:10px;">1 same → T1</div>
@@ -518,7 +518,7 @@ h2{font-size:1.4rem;font-weight:700;}
         <div id="spin-preview-pills" style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;"></div>
       </div>
     </div>
-
+ 
     <!-- SPIN BUTTON -->
     <div style="display:flex;gap:10px;margin-top:20px;">
       <button id="spin-btn" class="btn btn-primary" style="flex:1;font-size:1.1rem;font-weight:800;" onclick="goToWheel()">
@@ -527,10 +527,10 @@ h2{font-size:1.4rem;font-weight:700;}
       <button id="clear-btn" class="btn btn-ghost" onclick="clearDropZone()" style="border-radius:16px;padding:16px;">🗑️</button>
     </div>
     </div><!-- end clips-and-spin-section -->
-
+ 
   </div>
 </div>
-
+ 
 <!-- ============ SCREEN: WHEEL ============ -->
 <div id="screen-wheel" class="screen" style="align-items:center;overflow:hidden;">
   <div class="topbar" style="width:100%;">
@@ -541,13 +541,13 @@ h2{font-size:1.4rem;font-weight:700;}
     </div>
     <div style="width:60px;"></div>
   </div>
-
+ 
   <!-- Tier queue pills below nav -->
   <div id="spins-remaining-pills" style="display:flex;gap:4px;align-items:center;justify-content:center;padding:0 20px;margin:0 0 8px;width:100%;"></div>
-
+ 
   <!-- Title above wheel, outside the centred flex area so it doesn't crowd the pointer -->
   <div style="font-size:1.6rem;font-weight:800;text-align:center;padding:12px 20px 0;">Spin the Wheel</div>
-
+ 
   <!-- WHEEL CONTAINER — flex:1 centres wheel vertically in remaining space -->
   <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 20px 20px;width:100%;gap:0;">
     <div style="position:relative;display:inline-block;">
@@ -556,7 +556,7 @@ h2{font-size:1.4rem;font-weight:700;}
     </div>
   </div>
 </div>
-
+ 
 <!-- ============ SCREEN: BONUS ============ -->
 <div id="screen-bonus" class="screen" style="align-items:center;background:radial-gradient(ellipse at center,rgba(162,89,247,0.15),transparent 70%);">
   <div class="topbar" style="width:100%;">
@@ -566,35 +566,35 @@ h2{font-size:1.4rem;font-weight:700;}
     </div>
     <div class="streak-badge" id="bonus-streak">🔥 <span id="bonus-streak-num">1</span></div>
   </div>
-
+ 
   <div style="width:100%;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 20px 24px;gap:16px;overflow-y:auto;">
-
+ 
     <!-- Bonus Wheel — centred, same as main wheel -->
     <div style="position:relative;display:inline-block;flex-shrink:0;">
       <canvas id="bonusCanvas" width="320" height="320"></canvas>
       <div class="wheel-pointer" style="transform:translate(-50%,-183px);border-left:12px solid transparent;border-right:12px solid transparent;border-top:22px solid #E63A46;"></div>
     </div>
-
+ 
     <!-- Status text (below wheel) -->
     <div id="bonus-status" style="font-size:0.875rem;color:var(--muted);font-weight:600;text-align:center;"></div>
-
+ 
     <!-- Timer (only for % challenges) -->
     <div id="bonus-timer-wrap" style="display:none;text-align:center;">
       <div style="font-size:0.875rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.15em;font-weight:700;margin-bottom:4px;">Time remaining</div>
       <div id="bonus-timer" class="timer-display">10:00</div>
     </div>
-
+ 
     <!-- Result card -->
     <div id="bonus-result-card" class="card2" style="width:100%;text-align:center;display:none;">
       <div id="bonus-challenge" style="font-size:1.1rem;font-weight:800;color:var(--purple);"></div>
       <div id="bonus-habit-task" style="font-size:0.875rem;color:var(--muted);margin-top:6px;line-height:1.5;"></div>
     </div>
-
+ 
     <!-- Dynamic action buttons -->
     <div id="bonus-actions" style="width:100%;display:flex;flex-direction:column;gap:8px;"></div>
   </div>
 </div>
-
+ 
 <!-- ============ SCREEN: SETUP ============ -->
 <div id="screen-setup" class="screen">
   <div style="position:sticky;top:0;z-index:20;background:var(--bg);box-shadow:0 0 0 100vw var(--bg);clip-path:inset(0 -100vw);">
@@ -604,15 +604,15 @@ h2{font-size:1.4rem;font-weight:700;}
     <a href="https://buymeacoffee.com/clipspin" target="_blank" style="width:40px;height:40px;background:var(--card2);border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;text-decoration:none;">☕</a>
   </div>
   <!-- Setup tab bar — sticky with topbar -->
-  <div style="display:flex;gap:0;border-bottom:1px solid var(--border);padding:0 20px;background:var(--bg);">
+  <div style="display:flex;gap:0;border-bottom:1px solid var(--border);padding:0 20px;margin-top:8px;background:var(--bg);">
     <button id="setup-tab-tasks" onclick="switchSetupTab('tasks')" style="flex:1;padding:10px;font-family:'Inter',sans-serif;font-weight:700;background:none;border:none;color:var(--text);border-bottom:2px solid var(--mint);cursor:pointer;">Habits</button>
     <button id="setup-tab-rewards" onclick="switchSetupTab('rewards')" style="flex:1;padding:10px;font-family:'Inter',sans-serif;font-weight:700;background:none;border:none;color:var(--muted);border-bottom:2px solid transparent;cursor:pointer;">Rewards</button>
     <button id="setup-tab-general" onclick="switchSetupTab('general')" style="flex:1;padding:10px;font-family:'Inter',sans-serif;font-weight:700;background:none;border:none;color:var(--muted);border-bottom:2px solid transparent;cursor:pointer;">General</button>
   </div>
   </div>
-
-  <div style="padding:12px 20px 80px;display:flex;flex-direction:column;gap:0;overflow-y:auto;">
-
+ 
+  <div style="padding:16px 20px 80px;display:flex;flex-direction:column;gap:0;overflow-y:auto;" id="setup-scroll">
+ 
     <!-- TASKS TAB -->
     <div id="setup-panel-tasks" style="display:flex;flex-direction:column;gap:16px;">
       <div>
@@ -620,7 +620,7 @@ h2{font-size:1.4rem;font-weight:700;}
         <button class="btn btn-ghost" style="width:100%;margin-top:10px;border-radius:14px;" onclick="addHabit()">+ Add Habit</button>
       </div>
     </div>
-
+ 
     <!-- REWARDS TAB -->
     <div id="setup-panel-rewards" style="display:none;flex-direction:column;gap:20px;">
       <!-- The 3 Rules at top -->
@@ -656,7 +656,7 @@ h2{font-size:1.4rem;font-weight:700;}
         </div>
       </div>
     </div>
-
+ 
     <!-- GENERAL TAB -->
     <div id="setup-panel-general" style="display:none;flex-direction:column;gap:20px;">
       <!-- Mute sounds -->
@@ -676,6 +676,14 @@ h2{font-size:1.4rem;font-weight:700;}
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSdADaPcTiNuUgZCI4W-yUiX3jo7hrDxIcHzlr8ytyowG5a_dQ/viewform?usp=header" target="_blank" class="btn btn-ghost" style="width:100%;border-radius:14px;font-size:0.9rem;text-decoration:none;">
         🐛 Report Bug & Feedback
       </a>
+      <!-- Export / Import -->
+      <div class="card2" style="display:flex;flex-direction:column;gap:10px;">
+        <div style="font-weight:700;">📦 Export & Import Progress</div>
+        <div style="color:var(--muted);line-height:1.5;">Export copies all your progress and habits to clipboard. Paste it in the Import box on another device to migrate.</div>
+        <button class="btn btn-ghost" style="width:100%;border-radius:14px;" onclick="exportProgress()">📋 Copy Progress to Clipboard</button>
+        <textarea id="import-paste-area" placeholder="Paste exported data here…" style="width:100%;min-height:80px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:10px;color:var(--text);font-family:'Inter',sans-serif;font-size:14px;resize:vertical;outline:none;box-sizing:border-box;"></textarea>
+        <button class="btn btn-ghost" style="width:100%;border-radius:14px;" onclick="importProgress()">⬇️ Import from Pasted Data</button>
+      </div>
       <!-- Danger zone -->
       <div class="card" style="border-color:rgba(240,72,74,0.2);">
         <div style="font-size:0.875rem;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">⚠️ Danger Zone</div>
@@ -692,7 +700,7 @@ h2{font-size:1.4rem;font-weight:700;}
     </div>
   </div>
 </div>
-
+ 
 <!-- ============ RESULT OVERLAY ============ -->
 <div id="result-overlay" class="result-overlay">
   <div id="result-emoji" class="result-emoji">🎉</div>
@@ -705,19 +713,19 @@ h2{font-size:1.4rem;font-weight:700;}
   <button id="btn-continue-spin" class="btn btn-primary" style="width:100%;max-width:280px;" onclick="claimResult()">Continue Spin</button>
   <button class="btn btn-ghost" style="width:100%;max-width:280px;" onclick="claimAndExit()">Claim & Exit</button>
 </div>
-
+ 
 <!-- DRAG GHOST -->
 <div id="drag-ghost" style="display:none;width:36px;height:50px;position:fixed;pointer-events:none;z-index:9999;"></div>
-
+ 
 <!-- CLIP EARNED POPUP -->
 <div id="clip-popup" class="clip-earned-popup">
   <div style="width:36px;height:50px;flex-shrink:0;" id="popup-clip-icon"></div>
   <div style="font-size:0.95rem;font-weight:800;color:var(--text);">Clip Earned!</div>
 </div>
-
+ 
 <!-- TOAST -->
 <div id="toast">Toast message</div>
-
+ 
 <!-- FIRST-TIME HINT -->
 <div id="first-hint" style="display:none;position:fixed;inset:0;z-index:800;background:rgba(7,8,15,0.85);backdrop-filter:blur(12px);align-items:center;justify-content:center;padding:24px;">
   <div style="background:#0e1020;border:1px solid rgba(0,229,160,0.25);border-radius:24px;padding:28px 24px;max-width:360px;width:100%;box-shadow:0 0 60px rgba(0,229,160,0.1);">
@@ -729,24 +737,24 @@ h2{font-size:1.4rem;font-weight:700;}
     <button class="btn btn-primary" style="width:100%;" onclick="dismissFirstHint()">Let's Go!</button>
   </div>
 </div>
-
+ 
 <script>
 // ==========================================
 // GAME STATE
 // ==========================================
 const CLIP_COLORS = ['red','blue','green','orange','purple','pink'];
 const CLIP_GOLD = 'gold';
-
+ 
 const CLIP_CSS = {
   red:'#ef4444', blue:'#4b7cf7', green:'#22c55e',
   orange:'#f97316', purple:'#a855f7', pink:'#ec4899', gold:'#f8b722'
 };
-
+ 
 const CLIP_LABELS = {
   red:'Red Clip', blue:'Blue Clip', green:'Green Clip',
   orange:'Orange Clip', purple:'Purple Clip', pink:'Pink Clip', gold:'⭐ Gold Clip'
 };
-
+ 
 let state = {
   habits: [
     {id:1, name:'Morning Fitness', task:'15 Burpees', icon:'💪', timesPerDay:1, doneToday:0},
@@ -790,25 +798,25 @@ let state = {
     jackpot: ['Weekend trip!']
   }
 };
-
+ 
 let dragState = {
   active: false,
   clipIndex: null,
   ghost: null,
   source: null
 };
-
+ 
 // ==========================================
 // AUDIO SYSTEM
 // ==========================================
 let audioCtx = null;
-
+ 
 function initAudio() {
   if (!audioCtx) {
     try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); } catch(e) {}
   }
 }
-
+ 
 function playTone(freq, dur=0.1, vol=0.2, type='sine', delay=0) {
   if (soundMuted) return;
   if (!audioCtx) return;
@@ -822,7 +830,7 @@ function playTone(freq, dur=0.1, vol=0.2, type='sine', delay=0) {
   osc.start(audioCtx.currentTime + delay);
   osc.stop(audioCtx.currentTime + delay + dur + 0.01);
 }
-
+ 
 function playSound(name) {
   initAudio();
   if (!audioCtx) return;
@@ -873,7 +881,7 @@ function playSound(name) {
       break;
   }
 }
-
+ 
 // ==========================================
 // WHEEL SETUP
 // ==========================================
@@ -890,23 +898,23 @@ const WHEEL_SEGMENTS = (function(){
   const labels  = {T1:'T1', T2:'T2', T3:'T3', JACKPOT:'JACKPOT', BONUS:'BONUS'};
   return layout.map(t => ({label:labels[t], type:t, color:colors[t], textColor:texts[t]}));
 })();
-
+ 
 let wheelRotation = 0;
 let isSpinning = false;
 function easeOut(t) { return 1 - Math.pow(1 - t, 4); }
-
+ 
 // Build spin queue from submitted clips — returns [{tier, cost}]
 function calculateSpinQueue() {
   const clips = [...state.submittedClips];
   const queue = [];
-
+ 
   const golds = clips.filter(c => c === 'gold');
   golds.forEach(() => queue.push({tier:'T3', cost:1}));
-
+ 
   const nonGold = clips.filter(c => c !== 'gold');
   const counts = {};
   nonGold.forEach(c => counts[c] = (counts[c] || 0) + 1);
-
+ 
   Object.entries(counts)
     .sort((a, b) => b[1] - a[1])
     .forEach(([color, count]) => {
@@ -915,15 +923,15 @@ function calculateSpinQueue() {
       if (rem === 2) { queue.push({tier:'T2', cost:2}); rem = 0; }
       if (rem === 1) { queue.push({tier:'T1', cost:1}); }
     });
-
+ 
   return queue;
 }
-
+ 
 // Preview queue for dashboard (doesn't consume clips)
 function previewSpinQueue() {
   return calculateSpinQueue();
 }
-
+ 
 function getWeightedResult(tierCap) {
   const p = state.tierProbs || {t1:40, t2:30, t3:20, bonus:8, jackpot:2};
   const total = p.t1 + p.t2 + p.t3 + p.bonus + p.jackpot;
@@ -934,19 +942,19 @@ function getWeightedResult(tierCap) {
   else if (r < p.t1 + p.t2 + p.t3)              result = 'T3';
   else if (r < p.t1 + p.t2 + p.t3 + p.bonus)    result = 'BONUS';
   else                                             result = 'JACKPOT';
-
+ 
   if (tierCap === 'T1' && (result === 'T2' || result === 'T3' || result === 'JACKPOT')) result = 'T1';
   if (tierCap === 'T2' && (result === 'T3' || result === 'JACKPOT')) result = 'T2';
   return result;
 }
-
+ 
 function renderWheelQueueUI() {
   const queue = state.spinQueue;
-
+ 
   // Spins left count
   const countEl = document.getElementById('wheel-spins-left');
   if (countEl) countEl.textContent = queue.length;
-
+ 
   // Tier pills on right
   const tierColors = {T1:'var(--red)',T2:'var(--orange)',T3:'var(--blue)',JACKPOT:'var(--gold)'};
   const pills = document.getElementById('spins-remaining-pills');
@@ -964,36 +972,36 @@ function renderWheelQueueUI() {
     }).join('<div style="color:var(--muted);font-size:0.875rem;">›</div>');
   }
 }
-
+ 
 function spinMainWheel() {
   if (isSpinning || state.spinning) return;
   if (state.spinQueue.length === 0) return;
-
+ 
   initAudio();
   state.spinning = true;
   isSpinning = true;
-
+ 
   // Consume the first spin from queue
   const spinEntry = state.spinQueue.shift();
   state.currentSpinTier = spinEntry.tier;
   renderWheelQueueUI();
-
+ 
   // Determine result clamped to this spin's tier
   let result = getWeightedResult(state.currentSpinTier);
-
+ 
   // Near-miss check (only meaningful for lower tiers)
   const nearMiss = (result === 'T1' || result === 'T2') && Math.random() < 0.4;
-
+ 
   // Find matching segment — pick one at random if multiple
   const matchingSegments = WHEEL_SEGMENTS.map((s, i) => ({...s, i})).filter(s => s.type === result);
   const targetSeg = matchingSegments[Math.floor(Math.random() * matchingSegments.length)];
   const segArc = (2 * Math.PI) / WHEEL_SEGMENTS.length;
-
+ 
   // fullSpins MUST be an integer so it contributes an exact multiple of 2π —
   // any fractional spin shifts the landing angle and points at the wrong segment
   const numSpins = Math.floor(5 + Math.random() * 4); // 5–8 whole rotations
   const fullSpins = numSpins * 2 * Math.PI;
-
+ 
   // Desired final rotation (mod 2π) that puts targetSeg centre at the pointer (-π/2)
   const targetAngle = -(targetSeg.i * segArc + segArc / 2);
   // Compute total additional rotation so we land exactly on targetAngle
@@ -1002,28 +1010,28 @@ function spinMainWheel() {
   let   delta = targetMod - currentMod;
   if (delta < 0) delta += 2 * Math.PI;
   const finalRotation = fullSpins + delta;
-
+ 
   const startRotation = wheelRotation;
   const duration = 4000 + Math.random() * 1500;
   let startTime = null;
   let tickCount = 0;
-
+ 
   playSound('spin-start');
-
+ 
   function animate(timestamp) {
     if (!startTime) startTime = timestamp;
     const progress = Math.min((timestamp - startTime) / duration, 1);
     const easedProgress = easeOut(progress);
-
+ 
     wheelRotation = startRotation + finalRotation * easedProgress;
     drawWheel('wheelCanvas', WHEEL_SEGMENTS, wheelRotation, 320);
-
+ 
     const currentTick = Math.floor(wheelRotation / segArc);
     if (currentTick !== tickCount && progress < 0.85) {
       tickCount = currentTick;
       if (1 - easedProgress > 0.1) playSound('spin-tick');
     }
-
+ 
     if (progress < 1) {
       requestAnimationFrame(animate);
     } else {
@@ -1034,19 +1042,19 @@ function spinMainWheel() {
       highlightWinningSegment(result, targetSeg.i, () => showResult(result));
     }
   }
-
+ 
   requestAnimationFrame(animate);
 }
-
+ 
 function drawWheel(canvasId, segments, rotation, size) {
   const canvas = document.getElementById(canvasId);
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   const cx = size / 2, cy = size / 2, r = size / 2 - 4;
   const arc = (2 * Math.PI) / segments.length;
-
+ 
   ctx.clearRect(0, 0, size, size);
-
+ 
   // Outer ring
   ctx.beginPath();
   ctx.arc(cx, cy, r + 3, 0, 2 * Math.PI);
@@ -1055,12 +1063,12 @@ function drawWheel(canvasId, segments, rotation, size) {
   ctx.strokeStyle = 'rgba(255,255,255,0.15)';
   ctx.lineWidth = 2;
   ctx.stroke();
-
+ 
   for (let i = 0; i < segments.length; i++) {
     const startAngle = rotation + i * arc - Math.PI / 2;
     const endAngle = startAngle + arc;
     const seg = segments[i];
-
+ 
     // Segment fill
     ctx.beginPath();
     ctx.moveTo(cx, cy);
@@ -1068,12 +1076,12 @@ function drawWheel(canvasId, segments, rotation, size) {
     ctx.closePath();
     ctx.fillStyle = seg.color;
     ctx.fill();
-
+ 
     // Segment border
     ctx.strokeStyle = 'rgba(0,0,0,0.3)';
     ctx.lineWidth = 1.5;
     ctx.stroke();
-
+ 
     // Metallic highlight
     ctx.beginPath();
     ctx.moveTo(cx, cy);
@@ -1081,7 +1089,7 @@ function drawWheel(canvasId, segments, rotation, size) {
     ctx.closePath();
     ctx.fillStyle = 'rgba(255,255,255,0.04)';
     ctx.fill();
-
+ 
     // Text
     ctx.save();
     ctx.translate(cx, cy);
@@ -1093,15 +1101,15 @@ function drawWheel(canvasId, segments, rotation, size) {
     ctx.fillText(seg.label, r - 10, 4);
     ctx.restore();
   }
-
+ 
   // Center circle (solid, no stroke)
   ctx.beginPath();
   ctx.arc(cx, cy, size > 280 ? 18 : 14, 0, 2 * Math.PI);
   ctx.fillStyle = '#0a0b12';
   ctx.fill();
 }
-
-
+ 
+ 
 // Visually highlight the winning segment on the canvas, then call onDone
 function highlightWinningSegment(result, segIndex, onDone) {
   const canvas = document.getElementById('wheelCanvas');
@@ -1113,13 +1121,13 @@ function highlightWinningSegment(result, segIndex, onDone) {
   const arc = (2 * Math.PI) / totalSegs;
   const startAngle = wheelRotation + segIndex * arc - Math.PI / 2;
   const endAngle   = startAngle + arc;
-
+ 
   let frame = 0;
   const totalFrames = 28; // ~700ms at 40ms/frame
   const flashInterval = setInterval(() => {
     // Redraw wheel normally
     drawWheel('wheelCanvas', WHEEL_SEGMENTS, wheelRotation, size);
-
+ 
     // Draw glowing highlight arc over winning segment
     const alpha = 0.5 + 0.5 * Math.sin(frame * 0.45);
     ctx.save();
@@ -1129,7 +1137,7 @@ function highlightWinningSegment(result, segIndex, onDone) {
     ctx.closePath();
     ctx.fillStyle = `rgba(255,255,255,${alpha * 0.25})`;
     ctx.fill();
-
+ 
     // Bright border on the winning segment edges
     ctx.beginPath();
     ctx.moveTo(cx, cy);
@@ -1139,7 +1147,7 @@ function highlightWinningSegment(result, segIndex, onDone) {
     ctx.lineWidth = 4;
     ctx.stroke();
     ctx.restore();
-
+ 
     frame++;
     if (frame >= totalFrames) {
       clearInterval(flashInterval);
@@ -1147,27 +1155,27 @@ function highlightWinningSegment(result, segIndex, onDone) {
     }
   }, 25);
 }
-
+ 
 function showNearMiss(cb) { cb(); } // no-op, kept for safety
-
+ 
 function showResult(result) {
   const overlay = document.getElementById('result-overlay');
   const pick = arr => arr[Math.floor(Math.random() * arr.length)] || '—';
-
+ 
   if (result === 'BONUS') {
     // Store the tier reward for this spin (free reward on bonus)
     const tierKey = {T1:'t1', T2:'t2', T3:'t3'}[state.currentSpinTier] || 't1';
     state.pendingBonusTierReward = pick(state.rewards[tierKey]);
-
+ 
     // Save the free tier reward as a raffle ticket
     saveWonReward(state.pendingBonusTierReward, state.currentSpinTier || 'T1');
-
+ 
     document.getElementById('result-emoji').textContent = '⚡';
     document.getElementById('result-title').textContent = 'BONUS ROUND!';
     document.getElementById('result-tier-badge').className = 'tier-badge tier-bonus';
     document.getElementById('result-tier-badge').textContent = 'BONUS';
     document.getElementById('result-reward-text').textContent = `Free reward: ${state.pendingBonusTierReward}`;
-
+ 
     const contBtn = document.getElementById('btn-continue-spin');
     contBtn.textContent = 'Spin Bonus Wheel →';
     contBtn.onclick = () => {
@@ -1176,46 +1184,46 @@ function showResult(result) {
       triggerBonus();
     };
     document.querySelector('[onclick="claimAndExit()"]').style.display = 'none';
-
+ 
     overlay.classList.add('active');
     playSound('bonus');
     return;
   }
-
+ 
   // Restore exit button in case it was hidden
   const exitBtn = document.querySelector('[onclick="claimAndExit()"]');
   if (exitBtn) exitBtn.style.display = '';
-
+ 
   const resultMap = {
     'T1':     {emoji:'🎲', title:'TIER 1 WIN!',  reward: pick(state.rewards.t1),      badge:'tier-1',      badgeText:'Tier 1',  sound:'win-t1'},
     'T2':     {emoji:'🎯', title:'TIER 2 WIN!',  reward: pick(state.rewards.t2),      badge:'tier-2',      badgeText:'Tier 2',  sound:'win-t2'},
     'T3':     {emoji:'🏆', title:'TIER 3 WIN!',  reward: pick(state.rewards.t3),      badge:'tier-3',      badgeText:'Tier 3',  sound:'win-t3'},
     'JACKPOT':{emoji:'💥', title:'JACKPOT!!!',   reward: pick(state.rewards.jackpot), badge:'tier-jackpot',badgeText:'JACKPOT', sound:'win-jackpot'},
   };
-
+ 
   const info = resultMap[result] || resultMap['T1'];
   document.getElementById('result-emoji').textContent = info.emoji;
   document.getElementById('result-title').textContent = info.title;
   document.getElementById('result-reward-text').textContent = info.reward;
   document.getElementById('result-tier-badge').className = `tier-badge ${info.badge}`;
   document.getElementById('result-tier-badge').textContent = info.badgeText;
-
+ 
   // Save to raffle tickets
   saveWonReward(info.reward, result);
-
+ 
   overlay.classList.add('active');
   playSound(info.sound);
-
+ 
   if (result === 'JACKPOT') spawnConfetti();
   if (result === 'T3') setTimeout(spawnConfetti, 200);
 }
-
+ 
 function claimResult() {
   document.getElementById('result-overlay').classList.remove('active');
   state.spinning = false;
   isSpinning = false;
   state.spinsCompletedThisRound = (state.spinsCompletedThisRound || 0) + 1;
-
+ 
   if (state.spinQueue.length > 0) {
     // Update button: last spin = no more "Continue Spin"
     const btn = document.getElementById('btn-continue-spin');
@@ -1226,29 +1234,29 @@ function claimResult() {
     finishRoundAndGoHome();
   }
 }
-
+ 
 function claimAndExit() {
   document.getElementById('result-overlay').classList.remove('active');
   state.spinning = false;
   isSpinning = false;
   state.spinsCompletedThisRound = (state.spinsCompletedThisRound || 0) + 1;
-
+ 
   const costs = state.spinClipCosts || [];
   const usedCost = costs.slice(0, state.spinsCompletedThisRound).reduce((a,b)=>a+b, 0);
-
+ 
   const orig = state.originalSubmittedClips || [];
   state.submittedClips = orig.slice(usedCost);
   state.spinQueue = [];
-
+ 
   const prevJar = state.jar;
   const newJar  = prevJar + usedCost;
-
+ 
   calculateTier();
-
+ 
   // 1. Navigate and render with OLD jar value
   showScreen('dashboard');
   renderAll();
-
+ 
   if (usedCost > 0) {
     // 2. Double-rAF to animate
     requestAnimationFrame(() => requestAnimationFrame(() => {
@@ -1264,7 +1272,7 @@ function claimAndExit() {
     saveState();
   }
 }
-
+ 
 function triggerBonus() {
   state.bonusActive = true;
   state.streak++;
@@ -1273,45 +1281,45 @@ function triggerBonus() {
   document.getElementById('bonus-result-card').style.display = 'none';
   document.getElementById('bonus-timer-wrap').style.display = 'none';
   document.getElementById('bonus-actions').innerHTML = '';
-
+ 
   // Show the free tier reward at top
   const freeReward = state.pendingBonusTierReward;
   setBonusStatus(freeReward ? `🎁 Free: ${freeReward} — now spin for more!` : 'Spinning the bonus wheel...');
-
+ 
   drawBonusWheel(bonusWheelRotation);
   setTimeout(() => runBonusSpin(false), 700);
 }
-
+ 
 // Spin the bonus wheel and call onDone with the landed segment
 function runBonusSpin(avoidExtra) {
   if (isBonusSpinning) return;
   isBonusSpinning = true;
-
+ 
   // Pick a random segment (avoid EXTRA for sub-spins)
   const pool = avoidExtra
     ? BONUS_SEGMENTS.filter(s => s.type !== 'EXTRA')
     : BONUS_SEGMENTS;
   const bonus = pool[Math.floor(Math.random() * pool.length)];
   const targetIdx = BONUS_SEGMENTS.indexOf(bonus);
-
+ 
   const segArc = (2 * Math.PI) / BONUS_SEGMENTS.length;
-
+ 
   // Same fix: integer rotations only so landing angle is exact
   const numSpins = Math.floor(3 + Math.random() * 3); // 3–5 whole rotations
   const fullSpins = numSpins * 2 * Math.PI;
-
+ 
   const targetAngle  = -(targetIdx * segArc + segArc / 2);
   const currentMod   = ((bonusWheelRotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
   const targetMod    = ((targetAngle        % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
   let   delta = targetMod - currentMod;
   if (delta < 0) delta += 2 * Math.PI;
   const finalRotation = fullSpins + delta;
-
+ 
   const startRotation = bonusWheelRotation;
   const duration = 2500 + Math.random() * 800;
   let startTime = null;
   playSound('spin-start');
-
+ 
   function animate(ts) {
     if (!startTime) startTime = ts;
     const p = Math.min((ts - startTime) / duration, 1);
@@ -1322,15 +1330,15 @@ function runBonusSpin(avoidExtra) {
   }
   requestAnimationFrame(animate);
 }
-
+ 
 function setBonusStatus(txt) {
   document.getElementById('bonus-status').textContent = txt;
 }
-
+ 
 function setBonusActions(html) {
   document.getElementById('bonus-actions').innerHTML = html;
 }
-
+ 
 function showBonusResultCard(title, sub) {
   const card = document.getElementById('bonus-result-card');
   document.getElementById('bonus-challenge').textContent = title;
@@ -1338,7 +1346,7 @@ function showBonusResultCard(title, sub) {
   card.style.display = 'block';
   card.style.animation = 'slideUp 0.35s ease both';
 }
-
+ 
 function earnBonusClipNow() {
   const color = Math.random() < 0.05 ? CLIP_GOLD : CLIP_COLORS[Math.floor(Math.random() * CLIP_COLORS.length)];
   state.clips.push(color);
@@ -1347,14 +1355,14 @@ function earnBonusClipNow() {
   playSound(color === CLIP_GOLD ? 'gold-clip' : 'clip');
   return color;
 }
-
+ 
 function returnFromBonus() {
   clearBonusTimer();
   document.getElementById('bonus-timer').classList.remove('urgent');
   state.bonusActive = false;
   state.spinning = false;
   isSpinning = false;
-
+ 
   if (state.spinQueue.length > 0) {
     showScreen('wheel');
     setTimeout(() => spinMainWheel(), 600);
@@ -1362,7 +1370,7 @@ function returnFromBonus() {
     finishRoundAndGoHome();
   }
 }
-
+ 
 function handleBonusResult(type, wasSubSpin) {
   if (type === 'FREE') {
     const clip = earnBonusClipNow();
@@ -1371,29 +1379,29 @@ function handleBonusResult(type, wasSubSpin) {
     spawnConfetti();
     playSound('win-t2');
     setBonusActions(`<button class="btn btn-primary" style="width:100%;" onclick="returnFromBonus()">Continue →</button>`);
-
+ 
   } else if (type === 'EXTRA' && !wasSubSpin) {
     // Two bonus sub-spins
     showBonusResultCard('⚡ EXTRA! 2 Bonus Spins', 'Spinning twice for you...');
     setBonusStatus('Spin 1 of 2...');
     playSound('win-t3');
     spawnConfetti();
-
+ 
     // Sub-spin 1
     setTimeout(() => {
       document.getElementById('bonus-result-card').style.display = 'none';
       setBonusStatus('Spin 1 of 2...');
       runBonusSpin(true); // avoidExtra = true
     }, 1400);
-
+ 
     // After sub-spin 1 resolves (handleBonusResult called with wasSubSpin=true),
     // we do sub-spin 2 via state flag
     state._extraSpinsLeft = 2;
-
+ 
   } else if (type === 'EXTRA' && wasSubSpin) {
     // Treat as FREE in sub-spin context
     handleBonusResult('FREE', true);
-
+ 
   } else {
     // Percentage challenge: 25, 50, or 75
     const pct = parseInt(type);
@@ -1412,7 +1420,7 @@ function handleBonusResult(type, wasSubSpin) {
       <button class="btn btn-ghost" style="width:100%;margin-top:4px;" onclick="giveUpBonus()">Give Up</button>
     `);
   }
-
+ 
   // Handle EXTRA 2nd sub-spin sequencing
   if (wasSubSpin && state._extraSpinsLeft > 0) {
     state._extraSpinsLeft--;
@@ -1431,7 +1439,7 @@ function handleBonusResult(type, wasSubSpin) {
     }
   }
 }
-
+ 
 function startSecondExtraSpin() {
   document.getElementById('bonus-result-card').style.display = 'none';
   setBonusStatus('Spin 2 of 2...');
@@ -1439,7 +1447,7 @@ function startSecondExtraSpin() {
   state._extraSpinsLeft = 0;
   runBonusSpin(true);
 }
-
+ 
 function bonusFinished() {
   clearBonusTimer();
   document.getElementById('bonus-timer').classList.remove('urgent');
@@ -1449,7 +1457,7 @@ function bonusFinished() {
   setBonusStatus('Well done!');
   setBonusActions(`<button class="btn btn-primary" style="width:100%;" onclick="returnFromBonus()">Continue →</button>`);
 }
-
+ 
 function giveUpBonus() {
   clearBonusTimer();
   document.getElementById('bonus-timer').classList.remove('urgent');
@@ -1457,7 +1465,7 @@ function giveUpBonus() {
   setBonusStatus('No clip this time.');
   setBonusActions(`<button class="btn btn-ghost" style="width:100%;" onclick="returnFromBonus()">Back to Wheel</button>`);
 }
-
+ 
 // BONUS WHEEL
 const BONUS_SEGMENTS = (function(){
   // 20 slots reflecting probabilities: 75%(35%), Extra(25%), 25%(15%), 50%(15%), Free(10%)
@@ -1471,14 +1479,14 @@ const BONUS_SEGMENTS = (function(){
   const labels = {'75':'75%','EXTRA':'EXTRA','25':'25%','50':'50%','FREE':'FREE'};
   return layout.map(t => ({label:labels[t], type:t, color:colors[t], textColor:texts[t]}));
 })();
-
+ 
 let bonusWheelRotation = 0;
 let isBonusSpinning = false;
-
+ 
 function drawBonusWheel(rotation) {
   drawWheel('bonusCanvas', BONUS_SEGMENTS, rotation, 320);
 }
-
+ 
 function startBonusTimer() {
   clearBonusTimer();
   state.bonusTimeLeft = 600;
@@ -1503,17 +1511,17 @@ function startBonusTimer() {
     }
   }, 1000);
 }
-
+ 
 function updateTimerDisplay() {
   const m = Math.floor(state.bonusTimeLeft / 60);
   const s = state.bonusTimeLeft % 60;
   document.getElementById('bonus-timer').textContent = `${m}:${s < 10 ? '0' : ''}${s}`;
 }
-
+ 
 function clearBonusTimer() {
   if (state.bonusTimerInterval) { clearInterval(state.bonusTimerInterval); state.bonusTimerInterval = null; }
 }
-
+ 
 // ==========================================
 // HABIT SYSTEM
 // ==========================================
@@ -1521,26 +1529,26 @@ function completeHabit(id) {
   initAudio();
   const habit = state.habits.find(h => h.id === id);
   if (!habit) return;
-
+ 
   checkHabitDailyReset();
-
+ 
   const timesPerDay = habit.timesPerDay || 1;
   const doneToday   = habit.doneToday   || 0;
   if (doneToday >= timesPerDay) return; // already maxed for today
-
+ 
   habit.doneToday = doneToday + 1;
   state.habitsCompletedTotal = (state.habitsCompletedTotal || 0) + 1;
   recordHabitDay(habit.id, habit.doneToday);
-
+ 
   const newClip = Math.random() < 0.05 ? CLIP_GOLD : CLIP_COLORS[Math.floor(Math.random() * CLIP_COLORS.length)];
   state.clips.push(newClip);
-
+ 
   showClipPopup(newClip);
   playSound(newClip === CLIP_GOLD ? 'gold-clip' : 'clip');
   saveState();
   renderAll();
 }
-
+ 
 function checkHabitDailyReset() {
   const today = new Date().toDateString();
   if (state.lastHabitResetDate !== today) {
@@ -1553,7 +1561,7 @@ function checkHabitDailyReset() {
   });
   ensureHabitMonth();
 }
-
+ 
 function showClipPopup(color) {
   const popup = document.getElementById('clip-popup');
   const icon  = document.getElementById('popup-clip-icon');
@@ -1565,7 +1573,7 @@ function showClipPopup(color) {
     setTimeout(() => popup.classList.remove('show', 'hide'), 350);
   }, 1800);
 }
-
+ 
 // ==========================================
 // CLIP RENDERING
 // ==========================================
@@ -1575,16 +1583,16 @@ function createClipSVG(color) {
     <path d="M14 3C9 3 5 7 5 12L5 30C5 36.627 9.373 41 16 41C22.627 41 27 36.627 27 30L27 12C27 8.5 24.5 6 21 6C17.5 6 15 8.5 15 12L15 30C15 32 16.5 33.5 18 33.5C19.5 33.5 21 32 21 30L21 14" stroke="${c}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>`;
 }
-
+ 
 function renderInventory(skipSort = false) {
   const inv = document.getElementById('clip-inventory');
   document.getElementById('clip-count').textContent = state.clips.length;
-
+ 
   if (state.clips.length === 0) {
     inv.innerHTML = '<div style="color:var(--muted);font-size:0.875rem;padding:8px;">Complete habits to earn clips!</div>';
     return;
   }
-
+ 
   if (!skipSort) {
     const counts = {};
     state.clips.forEach(c => counts[c] = (counts[c] || 0) + 1);
@@ -1594,7 +1602,7 @@ function renderInventory(skipSort = false) {
       return counts[b] - counts[a];
     });
   }
-
+ 
   inv.innerHTML = '';
   state.clips.forEach((color, i) => {
     const clip = document.createElement('div');
@@ -1607,18 +1615,18 @@ function renderInventory(skipSort = false) {
     inv.appendChild(clip);
   });
 }
-
+ 
 function renderDropZone() {
   const dz = document.getElementById('drop-zone');
-
+ 
   dz.innerHTML = '';
-
+ 
   if (state.submittedClips.length === 0) {
     dz.innerHTML = '<div class="drop-zone-hint" id="drop-hint">Drop clips to cash in →</div>';
     updateSpinPreview();
     return;
   }
-
+ 
   state.submittedClips.forEach((color, i) => {
     const clip = document.createElement('div');
     clip.className = `clip clip-${color}`;
@@ -1629,16 +1637,16 @@ function renderDropZone() {
     clip.onclick = () => returnClipToInventory(i);
     dz.appendChild(clip);
   });
-
+ 
   updateMatchIndicator();
   updateSpinPreview();
 }
-
+ 
 function updateSpinPreview() {
   const preview = document.getElementById('spin-preview');
   const pills = document.getElementById('spin-preview-pills');
   if (!preview || !pills) return;
-
+ 
   const queue = calculateSpinQueue();
   if (queue.length === 0) {
     preview.style.display = 'none';
@@ -1646,35 +1654,35 @@ function updateSpinPreview() {
     if (countEl) countEl.textContent = '';
     return;
   }
-
+ 
   preview.style.display = 'block';
   const tierColors = {T1:'var(--red)',T2:'var(--orange)',T3:'var(--blue)',JACKPOT:'var(--gold)'};
   const tierLabels = {T1:'T1',T2:'T2',T3:'T3',JACKPOT:'JP'};
-
+ 
   pills.innerHTML = queue.map(entry => `
     <div style="padding:5px 12px;border-radius:8px;font-size:0.875rem;font-weight:800;
       background:${tierColors[entry.tier]}22;color:${tierColors[entry.tier]};border:1px solid ${tierColors[entry.tier]}44;">
       ${tierLabels[entry.tier]}
     </div>
   `).join('') + `<div style="font-size:0.875rem;color:var(--muted);margin-left:4px;">${queue.length} spin${queue.length > 1 ? 's' : ''}</div>`;
-
+ 
   // Update spin button label
   const countEl = document.getElementById('spin-btn-count');
   if (countEl) countEl.textContent = `x${queue.length}`;
 }
-
+ 
 function updateMatchIndicator() {
   const ind = document.getElementById('match-indicator');
   if (!ind) return; // element removed from dashboard
   const colors = state.submittedClips;
-
+ 
   if (colors.length === 0) {
     ind.style.background = 'rgba(255,255,255,0.05)';
     ind.style.color = 'var(--muted)';
     ind.textContent = 'No match';
     return;
   }
-
+ 
   const hasGold = colors.includes('gold');
   if (hasGold) {
     ind.style.background = 'rgba(248,183,34,0.15)';
@@ -1682,11 +1690,11 @@ function updateMatchIndicator() {
     ind.textContent = '⭐ T3!';
     return;
   }
-
+ 
   const counts = {};
   colors.forEach(c => counts[c] = (counts[c] || 0) + 1);
   const max = Math.max(...Object.values(counts));
-
+ 
   if (max >= 3) {
     ind.style.background = 'rgba(75,124,247,0.15)';
     ind.style.color = 'var(--blue)';
@@ -1701,12 +1709,12 @@ function updateMatchIndicator() {
     ind.textContent = 'Need match';
   }
 }
-
+ 
 function calculateTier() {
   // No longer stores state.tier — queue-based system handles tiers per spin
   updateSpinPreview();
 }
-
+ 
 function tapSelectClip(i) {
   initAudio();
   const color = state.clips.splice(i, 1)[0];
@@ -1717,7 +1725,7 @@ function tapSelectClip(i) {
   renderInventory(true); // don't re-sort — removal
   renderDropZone();
 }
-
+ 
 function clearDropZone() {
   state.clips.push(...state.submittedClips);
   state.submittedClips = [];
@@ -1725,7 +1733,7 @@ function clearDropZone() {
   renderInventory(false); // sort — clips added back
   renderDropZone();
 }
-
+ 
 function returnClipToInventory(i) {
   const clip = state.submittedClips.splice(i, 1)[0];
   state.clips.push(clip);
@@ -1734,7 +1742,7 @@ function returnClipToInventory(i) {
   renderDropZone();
   playSound('drop');
 }
-
+ 
 // ==========================================
 // DRAG & DROP SYSTEM
 // ==========================================
@@ -1767,7 +1775,7 @@ function setupDrag(el, index, source) {
     dragState.originEl = el;
   }
 }
-
+ 
 function moveDrag(e) {
   if (!dragState.active) return;
   e.preventDefault();
@@ -1790,7 +1798,7 @@ function moveDrag(e) {
     dz.classList.remove('over');
   }
 }
-
+ 
 function endDrag(e) {
   if (!dragState.active) return;
   
@@ -1832,7 +1840,7 @@ function endDrag(e) {
   renderInventory(true); // drag removal — no sort
   renderDropZone();
 }
-
+ 
 function cancelDrag() {
   if (dragState.originEl) dragState.originEl.style.opacity = '1';
   document.getElementById('drag-ghost').style.display = 'none';
@@ -1842,12 +1850,12 @@ function cancelDrag() {
   document.removeEventListener('pointerup', endDrag);
   document.removeEventListener('pointercancel', cancelDrag);
 }
-
+ 
 // Prevent page scroll during drag
 document.addEventListener('touchmove', (e) => {
   if (dragState.active) e.preventDefault();
 }, {passive: false});
-
+ 
 // ==========================================
 // JAR SYSTEM
 // ==========================================
@@ -1855,24 +1863,24 @@ function getNextJarGoal() {
   const sorted = [...state.jarGoals].sort((a, b) => a.amount - b.amount);
   return sorted.find(g => g.amount > state.jar) || sorted[sorted.length - 1] || {name:'Goal', amount:50};
 }
-
+ 
 function getPrevJarGoal() {
   const sorted = [...state.jarGoals].sort((a, b) => a.amount - b.amount);
   const prev = [...sorted].reverse().find(g => g.amount <= state.jar);
   return prev || {name:'Start', amount:0};
 }
-
+ 
 function updateJar() {
   const sorted = [...state.jarGoals].sort((a, b) => a.amount - b.amount).slice(0, 3); // max 3
   const maxGoal = sorted[sorted.length - 1]?.amount || 50;
-
+ 
   // Find current segment: previous reached goal → next unreached goal
   const prevGoal = sorted.slice().reverse().find(g => state.jar > g.amount) || {name:'Start', amount:0};
   const nextGoal = sorted.find(g => g.amount > state.jar);
   const isAllDone = !nextGoal; // jar complete
-
+ 
   updateJarAmount(state.jar);
-
+ 
   if (isAllDone) {
     document.getElementById('jar-next-name').textContent = '🎉 Complete!';
     document.getElementById('jar-target').textContent = '';
@@ -1882,17 +1890,17 @@ function updateJar() {
     const rangeStart = prevGoal.amount;
     const rangeEnd   = nextGoal.amount;
     const pct = Math.min(((state.jar - rangeStart) / (rangeEnd - rangeStart)) * 100, 100);
-
+ 
     document.getElementById('jar-next-name').textContent = nextGoal.name;
     document.getElementById('jar-target').textContent = ` at $${nextGoal.amount}`;
     document.getElementById('jar-progress').style.width = pct + '%';
-
+ 
     const doneCount = sorted.filter(g => state.jar >= g.amount).length;
     const icons = ['','🎯','🏆','🌙'];
     document.getElementById('jar-milestone-label').textContent =
       doneCount > 0 ? `${icons[doneCount]} ${doneCount}/${sorted.length} goals reached` : '';
   }
-
+ 
   // Journey count
   const journeyEl = document.getElementById('jar-journey-count');
   const journeyNum = document.getElementById('jar-journey-num');
@@ -1904,7 +1912,7 @@ function updateJar() {
       journeyEl.style.display = 'none';
     }
   }
-
+ 
   // SVG jar fill — progress across entire journey (0 → maxGoal)
   const maxHeight = 56;
   const fillHeight = Math.round(Math.min(state.jar / maxGoal, 1) * maxHeight);
@@ -1913,7 +1921,7 @@ function updateJar() {
     fillEl.setAttribute('height', fillHeight);
     fillEl.setAttribute('y', 69 - fillHeight);
   }
-
+ 
   // Draw goal marker lines in jar SVG
   const markersEl = document.getElementById('jar-goal-markers');
   if (markersEl) {
@@ -1926,7 +1934,7 @@ function updateJar() {
     }).join('');
   }
 }
-
+ 
 function triggerJarGoalReached(goal, isComplete) {
   // Big celebration overlay
   const overlay = document.createElement('div');
@@ -1958,14 +1966,14 @@ function triggerJarGoalReached(goal, isComplete) {
   spawnConfetti();
   playSound(isComplete ? 'win-jackpot' : 'win-t3');
 }
-
+ 
 function resetJarAfterComplete() {
   state.jarJourney++;
   state.jar = 0;
   saveState();
   renderAll();
 }
-
+ 
 function checkJarGoalReached(prevJar) {
   const sorted = [...state.jarGoals].sort((a, b) => a.amount - b.amount).slice(0, 3);
   // Check if we just crossed a goal threshold
@@ -1976,7 +1984,7 @@ function checkJarGoalReached(prevJar) {
     }
   });
 }
-
+ 
 // ==========================================
 // HABIT RENDERING
 // ==========================================
@@ -1984,7 +1992,7 @@ function renderHabits() {
   const list = document.getElementById('habit-list');
   const totalDone = state.habits.filter(h => (h.doneToday || 0) >= (h.timesPerDay || 1)).length;
   document.getElementById('habits-done-count').textContent = `${totalDone}/${state.habits.length} done`;
-
+ 
   list.innerHTML = '';
   state.habits.forEach(h => {
     const timesPerDay = h.timesPerDay || 1;
@@ -1994,7 +2002,7 @@ function renderHabits() {
     card.className = `habit-card ${fullyDone ? 'done' : ''}`;
     card.style.position = 'relative';
     card.onclick = () => completeHabit(h.id);
-
+ 
     const progressPips = timesPerDay > 1
       ? `<div style="display:flex;gap:3px;margin-top:4px;">
           ${Array.from({length: timesPerDay}, (_, i) =>
@@ -2002,11 +2010,11 @@ function renderHabits() {
           ).join('')}
          </div>`
       : '';
-
+ 
     const checkContent = fullyDone ? '✓'
       : timesPerDay > 1 ? `<span style="font-size:0.875rem;font-weight:800;">${doneToday}/${timesPerDay}</span>`
       : '';
-
+ 
     card.innerHTML = `
       <div class="habit-icon" style="background:rgba(255,255,255,0.06);">${h.icon}</div>
       <div style="flex:1;min-width:0;">
@@ -2018,14 +2026,14 @@ function renderHabits() {
       ${doneToday > 0 ? '<div class="habit-undo-fill"></div>' : ''}
     `;
     list.appendChild(card);
-
+ 
     // Long-press undo on cards with at least 1 completion
     if (doneToday > 0) {
       setupHoldUndo(card, h.id);
     }
   });
 }
-
+ 
 function setupHoldUndo(card, habitId) {
   let rafId = null;
   let startTime = null;
@@ -2033,13 +2041,13 @@ function setupHoldUndo(card, habitId) {
   const fill = card.querySelector('.habit-undo-fill');
   const title = card.querySelector('.habit-title');
   const origTitle = title ? title.textContent : '';
-
+ 
   function startHold(e) {
     if (e.button !== undefined && e.button !== 0) return;
     e.preventDefault();
     startTime = Date.now();
     if (title) title.textContent = 'Hold to undo';
-
+ 
     function frame() {
       const pct = Math.min((Date.now() - startTime) / HOLD_MS, 1);
       if (fill) fill.style.transform = `scaleX(${pct})`;
@@ -2053,14 +2061,14 @@ function setupHoldUndo(card, habitId) {
     }
     rafId = requestAnimationFrame(frame);
   }
-
+ 
   function cancelHold() {
     if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
     if (fill) fill.style.transform = 'scaleX(0)';
     if (title) title.textContent = origTitle;
     startTime = null;
   }
-
+ 
   card.addEventListener('pointerdown', startHold, {passive: false});
   card.addEventListener('pointerup', cancelHold);
   card.addEventListener('pointercancel', cancelHold);
@@ -2068,30 +2076,30 @@ function setupHoldUndo(card, habitId) {
     if (rafId && (Math.abs(e.movementX || 0) > 8 || Math.abs(e.movementY || 0) > 8)) cancelHold();
   });
 }
-
+ 
 function undoHabit(id) {
   initAudio();
   const habit = state.habits.find(h => h.id === id);
   if (!habit || (habit.doneToday || 0) === 0) return;
-
+ 
   // Remove last clip earned — only if clips are available in inventory
   if (state.clips.length === 0) {
     showToast("Can't undo — clips already used for spins!", 3000);
     renderHabits();
     return;
   }
-
+ 
   habit.doneToday = Math.max(0, (habit.doneToday || 1) - 1);
   state.habitsCompletedTotal = Math.max(0, (state.habitsCompletedTotal || 1) - 1);
   state.clips.pop();
   recordHabitDay(habit.id, habit.doneToday); // update grid
-
+ 
   playSound('drop');
   showToast('Habit unchecked. Clip removed.');
   saveState();
   renderAll();
 }
-
+ 
 // ==========================================
 // SETUP SCREEN
 // ==========================================
@@ -2101,12 +2109,12 @@ function adjustTimesPerDay(i, delta) {
   h.timesPerDay = Math.max(1, Math.min(10, (h.timesPerDay || 1) + delta));
   renderHabitSetup();
 }
-
+ 
 function addHabit() {
   state.habits.push({id: Date.now(), name:'New Habit', task:'Define your task', icon:'⚡', timesPerDay:1, doneToday:0});
   renderHabitSetup();
 }
-
+ 
 function renderSetup() {
   const jcr = document.getElementById('jar-complete-reward');
   if (jcr) jcr.value = state.jarCompleteReward || '';
@@ -2115,19 +2123,19 @@ function renderSetup() {
   renderJarGoals();
   // Don't auto-render sliders until general tab opened
 }
-
-
+ 
+ 
 function renderJarGoals() {
   const list = document.getElementById('jar-goals-list');
   if (!list) return;
   const sorted = [...state.jarGoals].sort((a, b) => a.amount - b.amount);
   list.innerHTML = '';
-
+ 
   if (sorted.length === 0) {
     list.innerHTML = '<div style="text-align:center;color:var(--muted);font-size:0.875rem;padding:16px;">No goals yet. Add one!</div>';
     return;
   }
-
+ 
   sorted.forEach((g, i) => {
     const reached = state.jar >= g.amount;
     const isNext = !reached && (i === 0 || state.jar >= sorted[i-1].amount);
@@ -2156,17 +2164,17 @@ function renderJarGoals() {
     list.appendChild(div);
   });
 }
-
+ 
 function updateJarGoalName(id, val) {
   const g = state.jarGoals.find(g => g.id === id);
   if (g) g.name = val;
 }
-
+ 
 function updateJarGoalAmount(id, val) {
   const g = state.jarGoals.find(g => g.id === id);
   if (g) g.amount = parseInt(val) || g.amount;
 }
-
+ 
 function addJarGoal() {
   if (state.jarGoals.length >= 3) { showToast('Max 3 jar goals!'); return; }
   const sorted = [...state.jarGoals].sort((a, b) => a.amount - b.amount);
@@ -2175,24 +2183,24 @@ function addJarGoal() {
   renderJarGoals();
   playSound('drop');
 }
-
+ 
 function removeJarGoal(id) {
   if (state.jarGoals.length <= 1) { showToast('Need at least 1 jar goal!'); return; }
   state.jarGoals = state.jarGoals.filter(g => g.id !== id);
   renderJarGoals();
 }
-
+ 
 function renderRewardTiers() {
   const container = document.getElementById('reward-tiers-container');
   if (!container) return;
-
+ 
   const tiers = [
     {key:'t1',      label:'Tier 1',   cls:'tier-1',      hint:'e.g. 30 min social media',  sub:'40% chance'},
     {key:'t2',      label:'Tier 2',   cls:'tier-2',      hint:'e.g. 1hr gaming session',   sub:'30% chance (2 matching clips)'},
     {key:'t3',      label:'Tier 3',   cls:'tier-3',      hint:'e.g. Buy something you want',sub:'20% chance (3 matching or Gold)'},
     {key:'jackpot', label:'Jackpot',  cls:'tier-jackpot',hint:'e.g. Weekend trip!',         sub:'2% chance'},
   ];
-
+ 
   container.innerHTML = '';
   tiers.forEach(t => {
     const rewards = state.rewards[t.key];
@@ -2218,19 +2226,19 @@ function renderRewardTiers() {
     container.appendChild(card);
   });
 }
-
+ 
 function addReward(tierKey) {
   if (!Array.isArray(state.rewards[tierKey])) state.rewards[tierKey] = [state.rewards[tierKey]];
   state.rewards[tierKey].push('');
   renderRewardTiers();
 }
-
+ 
 function removeReward(tierKey, idx) {
   if (state.rewards[tierKey].length <= 1) { showToast('Need at least 1 reward per tier!'); return; }
   state.rewards[tierKey].splice(idx, 1);
   renderRewardTiers();
 }
-
+ 
 function renderHabitSetup() {
   const list = document.getElementById('habit-setup-list');
   list.innerHTML = '';
@@ -2254,7 +2262,7 @@ function renderHabitSetup() {
           >${h.icon}</div>
         </div>
         <div style="flex:1;display:flex;flex-direction:column;gap:6px;">
-          <input class="setup-input" style="padding:10px 12px;" autocapitalize="sentences" placeholder="Habit name" value="${h.name}" oninput="state.habits[${i}].name=this.value">
+          <input class="setup-input" style="padding:10px 12px;" autocapitalize="words" placeholder="Habit name" value="${h.name}" oninput="state.habits[${i}].name=this.value">
           <input class="setup-input" style="padding:10px 12px;" autocapitalize="sentences" placeholder="Task (e.g. 15 Burpees)" value="${h.task}" oninput="state.habits[${i}].task=this.value">
         </div>
         <button onclick="removeHabit(${i})" style="background:none;border:none;color:var(--muted);font-size:1.2rem;cursor:pointer;padding:4px;flex-shrink:0;">✕</button>
@@ -2274,9 +2282,9 @@ function renderHabitSetup() {
     list.appendChild(div);
   });
 }
-
-
-
+ 
+ 
+ 
 function handleEmojiInput(el, idx) {
   // Keep only the last grapheme cluster typed (the new emoji)
   const chars = [...el.innerText];
@@ -2292,39 +2300,39 @@ function handleEmojiInput(el, idx) {
   window.getSelection()?.removeAllRanges();
   window.getSelection()?.addRange(range);
 }
-
+ 
 function startEmojiEdit(el) {
   // Glow border to signal "you are editing the emoji"
   el.style.borderColor = 'var(--mint)';
   el.style.boxShadow = '0 0 0 3px rgba(0,229,160,0.2)';
   el.style.animation = 'emojiPulse 1s ease-in-out infinite';
-
+ 
   // Show inline hint
   const habitId = el.id.replace('habit-emoji-', '');
   const hint = document.getElementById('emoji-hint-' + habitId);
   if (hint) hint.style.display = 'block';
-
+ 
   // Scroll into view above keyboard on mobile
   setTimeout(() => el.scrollIntoView({behavior:'smooth', block:'center'}), 150);
 }
-
+ 
 function endEmojiEdit(el) {
   el.style.borderColor = 'rgba(255,255,255,0.2)';
   el.style.boxShadow = '';
   el.style.animation = '';
-
+ 
   const habitId = el.id.replace('habit-emoji-', '');
   const hint = document.getElementById('emoji-hint-' + habitId);
   if (hint) hint.style.display = 'none';
 }
-
+ 
 function removeHabit(i) {
   if (state.habits.length <= 1) { showToast('Need at least 1 habit!'); return; }
   state.habits.splice(i, 1);
   renderHabitSetup();
 }
-
-
+ 
+ 
 function switchSetupTab(tab) {
   const tabs = ["tasks","rewards","general"];
   tabs.forEach(t => {
@@ -2333,13 +2341,63 @@ function switchSetupTab(tab) {
     if (panel) panel.style.display = t === tab ? "flex" : "none";
     if (btn)   { btn.style.color = t === tab ? "var(--text)" : "var(--muted)"; btn.style.borderBottomColor = t === tab ? "var(--mint)" : "transparent"; }
   });
+  const sc = document.getElementById("setup-scroll"); if (sc) sc.scrollTop = 0; window.scrollTo(0,0);
 }
-
+ 
+function exportProgress() {
+  try {
+    const data = {
+      _v: 1,
+      settings: JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}'),
+      progress: JSON.parse(localStorage.getItem(SAVE_KEY) || '{}')
+    };
+    const json = JSON.stringify(data);
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(json).then(() => showToast('✅ Copied to clipboard!'));
+    } else {
+      // Fallback for browsers without clipboard API
+      const ta = document.createElement('textarea');
+      ta.value = json;
+      ta.style.cssText = 'position:fixed;opacity:0;';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      ta.remove();
+      showToast('✅ Copied to clipboard!');
+    }
+  } catch(e) {
+    showToast('Export failed — try again');
+  }
+}
+ 
+function importProgress() {
+  const area = document.getElementById('import-paste-area');
+  if (!area || !area.value.trim()) { showToast('Paste your exported data first!'); return; }
+  try {
+    const data = JSON.parse(area.value.trim());
+    if (!data._v) throw new Error('Invalid format');
+    if (data.settings) localStorage.setItem(SETTINGS_KEY, JSON.stringify(data.settings));
+    if (data.progress) localStorage.setItem(SAVE_KEY, JSON.stringify(data.progress));
+    area.value = '';
+    // Reload state from localStorage
+    loadSettings();
+    loadState();
+    checkHabitDailyReset();
+    jarOd = null;
+    renderAll();
+    initJarOdometer();
+    showToast('✅ Progress imported! Welcome back.');
+    showScreen('dashboard');
+  } catch(e) {
+    showToast('Import failed — check the pasted data');
+  }
+}
+ 
 function markSetupDirty() {
-  const btn = document.getElementById("setup-back-btn");
-  if (btn) btn.textContent = "Save & Back";
+  const btn = document.getElementById('setup-back-btn');
+  if (btn) btn.textContent = 'Save & Back';
 }
-
+ 
 let soundMuted = false;
 function toggleMute(muted) {
   soundMuted = muted;
@@ -2349,14 +2407,14 @@ function toggleMute(muted) {
   if (thumb) thumb.style.transform = muted ? "translateX(20px)" : "translateX(0)";
   localStorage.setItem("habitspin_mute", muted ? "1" : "0");
 }
-
+ 
 function initMuteState() {
   soundMuted = localStorage.getItem("habitspin_mute") === "1";
   const toggle = document.getElementById("mute-toggle");
   if (toggle) toggle.checked = soundMuted;
   if (soundMuted) toggleMute(true);
 }
-
+ 
 function saveSetup() {
   // Rewards are saved live via oninput handlers in renderRewardTiers
   // Filter out any blank entries before saving
@@ -2371,7 +2429,7 @@ function saveSetup() {
   showScreen('dashboard');
   renderAll();
 }
-
+ 
 // ==========================================
 // CONFETTI
 // ==========================================
@@ -2397,7 +2455,7 @@ function spawnConfetti() {
     }, i * 30);
   }
 }
-
+ 
 // ==========================================
 // UTILITY
 // ==========================================
@@ -2432,7 +2490,7 @@ function showScreen(name) {
   
   window.scrollTo(0, 0);
 }
-
+ 
 function goToWheel() {
   initAudio();
   const queue = calculateSpinQueue();
@@ -2449,24 +2507,24 @@ function goToWheel() {
   showScreen('wheel');
   setTimeout(() => spinMainWheel(), 600);
 }
-
+ 
 function finishRoundAndGoHome() {
   const costs = state.spinClipCosts || [];
   const completed = state.spinsCompletedThisRound || 0;
   const usedCost = costs.slice(0, completed).reduce((a,b)=>a+b, 0);
-
+ 
   state.submittedClips = [];
   state.clipsUsedThisRound = 0;
   state.spinsCompletedThisRound = 0;
   calculateTier();
-
+ 
   const prevJar = state.jar;
   const newJar  = prevJar + usedCost;
-
+ 
   // 1. Navigate and render with the OLD value — odometer snaps to prevJar (no animation)
   showScreen('dashboard');
   renderAll();
-
+ 
   if (usedCost > 0) {
     // 2. Double-rAF: first frame commits the old value paint, second triggers CSS transition
     requestAnimationFrame(() => requestAnimationFrame(() => {
@@ -2482,17 +2540,17 @@ function finishRoundAndGoHome() {
     saveState();
   }
 }
-
-
+ 
+ 
 // ==========================================
 // ODOMETER (inlined from uploaded odometer.min.js)
 // ==========================================
 /*! odometer 0.4.7 */
 (function(){var a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G=[].slice;q='<span class="odometer-value"></span>',n='<span class="odometer-ribbon"><span class="odometer-ribbon-inner">'+q+"</span></span>",d='<span class="odometer-digit"><span class="odometer-digit-spacer">8</span><span class="odometer-digit-inner">'+n+"</span></span>",g='<span class="odometer-formatting-mark"></span>',c="(,ddd).dd",h=/^\(?([^)]*)\)?(?:(.)(d+))?$/,i=30,f=2e3,a=20,j=2,e=.5,k=1e3/i,b=1e3/a,o="transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd",y=document.createElement("div").style,p=null!=y.transition||null!=y.webkitTransition||null!=y.mozTransition||null!=y.oTransition,w=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame,l=window.MutationObserver||window.WebKitMutationObserver||window.MozMutationObserver,s=function(a){var b;return b=document.createElement("div"),b.innerHTML=a,b.children[0]},v=function(a,b){return a.className=a.className.replace(new RegExp("(^| )"+b.split(" ").join("|")+"( |$)","gi")," ")},r=function(a,b){return v(a,b),a.className+=" "+b},z=function(a,b){var c;return null!=document.createEvent?(c=document.createEvent("HTMLEvents"),c.initEvent(b,!0,!0),a.dispatchEvent(c)):void 0},u=function(){var a,b;return null!=(a=null!=(b=window.performance)&&"function"==typeof b.now?b.now():void 0)?a:+new Date},x=function(a,b){return null==b&&(b=0),b?(a*=Math.pow(10,b),a+=.5,a=Math.floor(a),a/=Math.pow(10,b)):Math.round(a)},A=function(a){return 0>a?Math.ceil(a):Math.floor(a)},t=function(a){return a-x(a)},C=!1,(B=function(){var a,b,c,d,e;if(!C&&null!=window.jQuery){for(C=!0,d=["html","text"],e=[],b=0,c=d.length;c>b;b++)a=d[b],e.push(function(a){var b;return b=window.jQuery.fn[a],window.jQuery.fn[a]=function(a){var c;return null==a||null==(null!=(c=this[0])?c.odometer:void 0)?b.apply(this,arguments):this[0].odometer.update(a)}}(a));return e}})(),setTimeout(B,0),m=function(){function a(b){var c,d,e,g,h,i,l,m,n,o,p=this;if(this.options=b,this.el=this.options.el,null!=this.el.odometer)return this.el.odometer;this.el.odometer=this,m=a.options;for(d in m)g=m[d],null==this.options[d]&&(this.options[d]=g);null==(h=this.options).duration&&(h.duration=f),this.MAX_VALUES=this.options.duration/k/j|0,this.resetFormat(),this.value=this.cleanValue(null!=(n=this.options.value)?n:""),this.renderInside(),this.render();try{for(o=["innerHTML","innerText","textContent"],i=0,l=o.length;l>i;i++)e=o[i],null!=this.el[e]&&!function(a){return Object.defineProperty(p.el,a,{get:function(){var b;return"innerHTML"===a?p.inside.outerHTML:null!=(b=p.inside.innerText)?b:p.inside.textContent},set:function(a){return p.update(a)}})}(e)}catch(q){c=q,this.watchForMutations()}}return a.prototype.renderInside=function(){return this.inside=document.createElement("div"),this.inside.className="odometer-inside",this.el.innerHTML="",this.el.appendChild(this.inside)},a.prototype.watchForMutations=function(){var a,b=this;if(null!=l)try{return null==this.observer&&(this.observer=new l(function(){var a;return a=b.el.innerText,b.renderInside(),b.render(b.value),b.update(a)})),this.watchMutations=!0,this.startWatchingMutations()}catch(c){a=c}},a.prototype.startWatchingMutations=function(){return this.watchMutations?this.observer.observe(this.el,{childList:!0}):void 0},a.prototype.stopWatchingMutations=function(){var a;return null!=(a=this.observer)?a.disconnect():void 0},a.prototype.cleanValue=function(a){var b;return"string"==typeof a&&(a=a.replace(null!=(b=this.format.radix)?b:".","<radix>"),a=a.replace(/[.,]/g,""),a=a.replace("<radix>","."),a=parseFloat(a,10)||0),x(a,this.format.precision)},a.prototype.bindTransitionEnd=function(){var a,b,c,d,e,f,g=this;if(!this.transitionEndBound){for(this.transitionEndBound=!0,b=!1,e=o.split(" "),f=[],c=0,d=e.length;d>c;c++)a=e[c],f.push(this.el.addEventListener(a,function(){return b?!0:(b=!0,setTimeout(function(){return g.render(),b=!1,z(g.el,"odometerdone")},0),!0)},!1));return f}},a.prototype.resetFormat=function(){var a,b,d,e,f,g,i,j;if(a=null!=(i=this.options.format)?i:c,a||(a="d"),d=h.exec(a),!d)throw new Error("Odometer: Unparsable digit format");return j=d.slice(1,4),g=j[0],f=j[1],b=j[2],e=(null!=b?b.length:void 0)||0,this.format={repeating:g,radix:f,precision:e}},a.prototype.render=function(a){var b,c,d,e,f,g,h;for(null==a&&(a=this.value),this.stopWatchingMutations(),this.resetFormat(),this.inside.innerHTML="",f=this.options.theme,b=this.el.className.split(" "),e=[],g=0,h=b.length;h>g;g++)c=b[g],c.length&&((d=/^odometer-theme-(.+)$/.exec(c))?f=d[1]:/^odometer(-|$)/.test(c)||e.push(c));return e.push("odometer"),p||e.push("odometer-no-transitions"),e.push(f?"odometer-theme-"+f:"odometer-auto-theme"),this.el.className=e.join(" "),this.ribbons={},this.formatDigits(a),this.startWatchingMutations()},a.prototype.formatDigits=function(a){var b,c,d,e,f,g,h,i,j,k;if(this.digits=[],this.options.formatFunction)for(d=this.options.formatFunction(a),j=d.split("").reverse(),f=0,h=j.length;h>f;f++)c=j[f],c.match(/0-9/)?(b=this.renderDigit(),b.querySelector(".odometer-value").innerHTML=c,this.digits.push(b),this.insertDigit(b)):this.addSpacer(c);else for(e=!this.format.precision||!t(a)||!1,k=a.toString().split("").reverse(),g=0,i=k.length;i>g;g++)b=k[g],"."===b&&(e=!0),this.addDigit(b,e)},a.prototype.update=function(a){var b,c=this;return a=this.cleanValue(a),(b=a-this.value)?(v(this.el,"odometer-animating-up odometer-animating-down odometer-animating"),b>0?r(this.el,"odometer-animating-up"):r(this.el,"odometer-animating-down"),this.stopWatchingMutations(),this.animate(a),this.startWatchingMutations(),setTimeout(function(){return c.el.offsetHeight,r(c.el,"odometer-animating")},0),this.value=a):void 0},a.prototype.renderDigit=function(){return s(d)},a.prototype.insertDigit=function(a,b){return null!=b?this.inside.insertBefore(a,b):this.inside.children.length?this.inside.insertBefore(a,this.inside.children[0]):this.inside.appendChild(a)},a.prototype.addSpacer=function(a,b,c){var d;return d=s(g),d.innerHTML=a,c&&r(d,c),this.insertDigit(d,b)},a.prototype.addDigit=function(a,b){var c,d,e,f;if(null==b&&(b=!0),"-"===a)return this.addSpacer(a,null,"odometer-negation-mark");if("."===a)return this.addSpacer(null!=(f=this.format.radix)?f:".",null,"odometer-radix-mark");if(b)for(e=!1;;){if(!this.format.repeating.length){if(e)throw new Error("Bad odometer format without digits");this.resetFormat(),e=!0}if(c=this.format.repeating[this.format.repeating.length-1],this.format.repeating=this.format.repeating.substring(0,this.format.repeating.length-1),"d"===c)break;this.addSpacer(c)}return d=this.renderDigit(),d.querySelector(".odometer-value").innerHTML=a,this.digits.push(d),this.insertDigit(d)},a.prototype.animate=function(a){return p&&"count"!==this.options.animation?this.animateSlide(a):this.animateCount(a)},a.prototype.animateCount=function(a){var c,d,e,f,g,h=this;if(d=+a-this.value)return f=e=u(),c=this.value,(g=function(){var i,j,k;return u()-f>h.options.duration?(h.value=a,h.render(),void z(h.el,"odometerdone")):(i=u()-e,i>b&&(e=u(),k=i/h.options.duration,j=d*k,c+=j,h.render(Math.round(c))),null!=w?w(g):setTimeout(g,b))})()},a.prototype.getDigitCount=function(){var a,b,c,d,e,f;for(d=1<=arguments.length?G.call(arguments,0):[],a=e=0,f=d.length;f>e;a=++e)c=d[a],d[a]=Math.abs(c);return b=Math.max.apply(Math,d),Math.ceil(Math.log(b+1)/Math.log(10))},a.prototype.getFractionalDigitCount=function(){var a,b,c,d,e,f,g;for(e=1<=arguments.length?G.call(arguments,0):[],b=/^\-?\d*\.(\d*?)0*$/,a=f=0,g=e.length;g>f;a=++f)d=e[a],e[a]=d.toString(),c=b.exec(e[a]),e[a]=null==c?0:c[1].length;return Math.max.apply(Math,e)},a.prototype.resetDigits=function(){return this.digits=[],this.ribbons=[],this.inside.innerHTML="",this.resetFormat()},a.prototype.animateSlide=function(a){var b,c,d,f,g,h,i,j,k,l,m,n,o,p,q,s,t,u,v,w,x,y,z,B,C,D,E;if(s=this.value,j=this.getFractionalDigitCount(s,a),j&&(a*=Math.pow(10,j),s*=Math.pow(10,j)),d=a-s){for(this.bindTransitionEnd(),f=this.getDigitCount(s,a),g=[],b=0,m=v=0;f>=0?f>v:v>f;m=f>=0?++v:--v){if(t=A(s/Math.pow(10,f-m-1)),i=A(a/Math.pow(10,f-m-1)),h=i-t,Math.abs(h)>this.MAX_VALUES){for(l=[],n=h/(this.MAX_VALUES+this.MAX_VALUES*b*e),c=t;h>0&&i>c||0>h&&c>i;)l.push(Math.round(c)),c+=n;l[l.length-1]!==i&&l.push(i),b++}else l=function(){E=[];for(var a=t;i>=t?i>=a:a>=i;i>=t?a++:a--)E.push(a);return E}.apply(this);for(m=w=0,y=l.length;y>w;m=++w)k=l[m],l[m]=Math.abs(k%10);g.push(l)}for(this.resetDigits(),D=g.reverse(),m=x=0,z=D.length;z>x;m=++x)for(l=D[m],this.digits[m]||this.addDigit(" ",m>=j),null==(u=this.ribbons)[m]&&(u[m]=this.digits[m].querySelector(".odometer-ribbon-inner")),this.ribbons[m].innerHTML="",0>d&&(l=l.reverse()),o=C=0,B=l.length;B>C;o=++C)k=l[o],q=document.createElement("div"),q.className="odometer-value",q.innerHTML=k,this.ribbons[m].appendChild(q),o===l.length-1&&r(q,"odometer-last-value"),0===o&&r(q,"odometer-first-value");return 0>t&&this.addDigit("-"),p=this.inside.querySelector(".odometer-radix-mark"),null!=p&&p.parent.removeChild(p),j?this.addSpacer(this.format.radix,this.digits[j-1],"odometer-radix-mark"):void 0}},a}(),m.options=null!=(E=window.odometerOptions)?E:{},setTimeout(function(){var a,b,c,d,e;if(window.odometerOptions){d=window.odometerOptions,e=[];for(a in d)b=d[a],e.push(null!=(c=m.options)[a]?(c=m.options)[a]:c[a]=b);return e}},0),m.init=function(){var a,b,c,d,e,f;if(null!=document.querySelectorAll){for(b=document.querySelectorAll(m.options.selector||".odometer"),f=[],c=0,d=b.length;d>c;c++)a=b[c],f.push(a.odometer=new m({el:a,value:null!=(e=a.innerText)?e:a.textContent}));return f}},null!=(null!=(F=document.documentElement)?F.doScroll:void 0)&&null!=document.createEventObject?(D=document.onreadystatechange,document.onreadystatechange=function(){return"complete"===document.readyState&&m.options.auto!==!1&&m.init(),null!=D?D.apply(this,arguments):void 0}):document.addEventListener("DOMContentLoaded",function(){return m.options.auto!==!1?m.init():void 0},!1),"function"==typeof define&&define.amd?define(["jquery"],function(){return m}):"undefined"!=typeof exports&&null!==exports?module.exports=m:window.Odometer=m}).call(this);
-
+ 
 // Odometer instance for jar balance
 let jarOd = null;
-
+ 
 function initJarOdometer() {
   const el = document.getElementById('jar-amount');
   if (!el) return;
@@ -2504,7 +2562,7 @@ function initJarOdometer() {
     duration: 1000
   });
 }
-
+ 
 function updateJarAmount(newValue, animate = false) {
   if (!jarOd) initJarOdometer();
   if (!jarOd) return;
@@ -2515,7 +2573,7 @@ function updateJarAmount(newValue, animate = false) {
     jarOd.update(Math.max(0, Math.floor(newValue)));
   }
 }
-
+ 
 function showToast(msg, dur=2500) {
   const t = document.getElementById('toast');
   t.textContent = msg;
@@ -2525,19 +2583,19 @@ function showToast(msg, dur=2500) {
   clearTimeout(t._timeout);
   t._timeout = setTimeout(() => t.classList.remove('show'), dur);
 }
-
+ 
 function updateNavDate() {
   const el = document.getElementById('nav-date');
   if (!el) return;
   const now = new Date();
   el.textContent = now.toLocaleDateString('en-US', {weekday:'short', month:'short', day:'numeric'});
 }
-
+ 
 // ==========================================
 // TAB SYSTEM
 // ==========================================
 let activeTab = 'habits';
-
+ 
 function switchTab(tab) {
   activeTab = tab;
   document.getElementById('panel-habits').style.display = tab === 'habits' ? '' : 'none';
@@ -2548,9 +2606,13 @@ function switchTab(tab) {
   document.getElementById('tab-stats').style.borderBottomColor  = tab === 'stats'  ? 'var(--mint)' : 'transparent';
   const clipSec = document.getElementById('clips-and-spin-section');
   if (clipSec) clipSec.style.display = tab === 'habits' ? '' : 'none';
+  // Scroll to top
+  const sc = document.getElementById('main-scroll');
+  if (sc) sc.scrollTop = 0;
+  window.scrollTo(0, 0);
   if (tab === 'stats') { renderRewardsPanel(); renderHabitGrids(); }
 }
-
+ 
 // ==========================================
 // REWARD TRACKING
 // ==========================================
@@ -2565,17 +2627,33 @@ function saveWonReward(rewardText, tier) {
   });
   saveState();
 }
-
+ 
 function redeemReward(id) {
   const r = state.wonRewards.find(r => r.id === id);
   if (!r || r.redeemed) return;
-  r.redeemed = true;
-  r.redeemedDate = new Date().toISOString();
-  playSound('drop');
-  saveState();
-  renderRewardsPanel();
+ 
+  // Animate the card before re-rendering
+  const cardEl = document.getElementById('reward-card-' + id);
+  if (cardEl) {
+    cardEl.style.transition = 'opacity 0.3s, transform 0.3s';
+    cardEl.style.opacity = '0.3';
+    cardEl.style.transform = 'translateY(8px)';
+    setTimeout(() => {
+      r.redeemed = true;
+      r.redeemedDate = new Date().toISOString();
+      playSound('drop');
+      saveState();
+      renderRewardsPanel();
+    }, 320);
+  } else {
+    r.redeemed = true;
+    r.redeemedDate = new Date().toISOString();
+    playSound('drop');
+    saveState();
+    renderRewardsPanel();
+  }
 }
-
+ 
 function cleanOldRewards() {
   // Remove redeemed rewards from previous days
   const today = new Date().toDateString();
@@ -2584,7 +2662,7 @@ function cleanOldRewards() {
     return new Date(r.redeemedDate).toDateString() === today;
   });
 }
-
+ 
 function renderRewardsPanel() {
   cleanOldRewards();
   // Update stats banner
@@ -2599,18 +2677,18 @@ function renderRewardsPanel() {
   const active = state.wonRewards.filter(r => !r.redeemed);
   const used   = state.wonRewards.filter(r => r.redeemed);
   const all = [...active, ...used];
-
+ 
   if (all.length === 0) {
     list.innerHTML = `<div style="text-align:center;color:var(--muted);padding:24px;font-size:0.875rem;">No rewards yet — spin the wheel to earn some!</div>`;
     return;
   }
-
+ 
   const tierColors = {T1:'#ef4444',T2:'#f97316',T3:'#4b7cf7',JACKPOT:'#f8b722',BONUS:'#a855f7'};
   list.innerHTML = all.map(r => {
     const color = tierColors[r.tier] || 'var(--muted)';
     const dateStr = new Date(r.date).toLocaleDateString('en-US',{month:'short',day:'numeric'});
     return `
-      <div onclick="${r.redeemed ? '' : `redeemReward(${r.id})`}" style="
+      <div id="reward-card-${r.id}" onclick="${r.redeemed ? '' : `redeemReward(${r.id})`}" style="
         display:flex;align-items:stretch;border-radius:14px;overflow:hidden;
         opacity:${r.redeemed ? 0.45 : 1};
         cursor:${r.redeemed ? 'default' : 'pointer'};
@@ -2642,17 +2720,17 @@ function renderRewardsPanel() {
     `;
   }).join('');
 }
-
+ 
 // ==========================================
 // MONTHLY HABIT GRIDS
 // ==========================================
 const HABIT_COLORS = ['#4b7cf7','#00e5a0','#f97316','#a855f7','#ec4899','#f8b722','#ef4444','#22c55e'];
-
+ 
 function todayKey() {
   const d = new Date();
   return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 }
-
+ 
 // ==========================================
 // HABIT MONTH SCHEMA (compact)
 // ==========================================
@@ -2660,7 +2738,7 @@ function monthKey() {
   const d = new Date();
   return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;
 }
-
+ 
 function initHabitMonth() {
   const now = new Date();
   const n = new Date(now.getFullYear(), now.getMonth()+1, 0).getDate();
@@ -2676,7 +2754,7 @@ function initHabitMonth() {
     }))
   };
 }
-
+ 
 function ensureHabitMonth() {
   const mk = monthKey();
   if (!state.habitMonth || state.habitMonth.m !== mk) {
@@ -2696,7 +2774,7 @@ function ensureHabitMonth() {
     }
   });
 }
-
+ 
 function recordHabitDay(habitId, completions) {
   ensureHabitMonth();
   const task = state.habitMonth.ts.find(t => t.id === habitId);
@@ -2705,23 +2783,23 @@ function recordHabitDay(habitId, completions) {
   const c = task.c || 1;
   task.d[dayIdx] = completions >= c ? 'd' : completions;
 }
-
+ 
 function renderHabitGrids() {
   const container = document.getElementById('habit-grids');
   if (!container) return;
   ensureHabitMonth();
   const hm = state.habitMonth;
   const monthName = new Date().toLocaleDateString('en-US', {month:'long'});
-
+ 
   const label = document.getElementById('month-grid-label');
   if (label) label.textContent = `📅 Month of ${monthName}`;
-
+ 
   container.innerHTML = state.habits.map((h, hi) => {
     const color = HABIT_COLORS[hi % HABIT_COLORS.length];
     const task = hm.ts.find(t => t.id === h.id);
     const c = h.timesPerDay || 1;
     const todayDay = new Date().getDate();
-
+ 
     const cells = Array.from({length: hm.n}, (_, idx) => {
       const dayNum = idx + 1;
       const isToday = dayNum === todayDay;
@@ -2733,26 +2811,30 @@ function renderHabitGrids() {
       const step = Math.round(ratio * 10);
       const opacity = step === 0 ? 1 : 0.07 + (step / 10) * 0.93;
       const bg = step === 0 ? 'rgba(255,255,255,0.07)' : color;
-
+ 
       return `<div style="width:12px;height:12px;border-radius:2px;background:${bg};opacity:${opacity};flex-shrink:0;${isToday ? 'outline:1.5px solid rgba(255,255,255,0.7);outline-offset:1px;' : ''}" title="Day ${dayNum}"></div>`;
     }).join('');
-
-    // Filler cells so last row matches first row width
-    const COLS = 10;
-    const remainder = hm.n % COLS;
-    const fillers = remainder === 0 ? "" : Array(COLS - remainder).fill(`<div style="width:12px;height:12px;flex-shrink:0;"></div>`).join("");
-
-
+ 
+    // Compute how many cells fit per row from container width, pad last row with ghost cells
+    const container = document.getElementById('habit-grids');
+    const cellW = 12, gap = 3;
+    const containerW = container ? container.offsetWidth : 300;
+    const perRow = Math.max(1, Math.floor((containerW + gap) / (cellW + gap)));
+    const ghostCount = (perRow - (hm.n % perRow)) % perRow;
+    const ghosts = Array(ghostCount).fill(
+      `<div style="width:${cellW}px;height:${cellW}px;border-radius:2px;flex-shrink:0;box-sizing:border-box;border:1px solid rgba(255,255,255,0.08);"></div>`
+    ).join('');
+ 
     return `<div>
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
         <span style="font-size:1rem;">${h.icon}</span>
-        <span style="font-size:0.875rem;font-weight:700;">${h.name}</span>
+        <span style="font-weight:700;">${h.name}</span>
       </div>
-      <div style="display:flex;flex-wrap:wrap;gap:3px;">${cells}${fillers}</div>
+      <div style="display:flex;flex-wrap:wrap;gap:${gap}px;">${cells}${ghosts}</div>
     </div>`;
   }).join('');
 }
-
+ 
 function renderAll() {
   checkHabitDailyReset();
   updateNavDate();
@@ -2768,7 +2850,7 @@ function renderAll() {
     showToast('🔥 All habits done! Go spin the wheel!');
   }
 }
-
+ 
 // ==========================================
 // INIT
 // ==========================================
@@ -2777,7 +2859,7 @@ function renderAll() {
 // ==========================================
 const SAVE_KEY = 'habitspin_v1';
 const SETTINGS_KEY = 'habitspin_settings_v1';
-
+ 
 function saveSettings() {
   try {
     localStorage.setItem(SETTINGS_KEY, JSON.stringify({
@@ -2790,7 +2872,7 @@ function saveSettings() {
     }));
   } catch(e) { console.warn('Settings save failed:', e); }
 }
-
+ 
 function loadSettings() {
   try {
     const raw = localStorage.getItem(SETTINGS_KEY);
@@ -2810,7 +2892,7 @@ function loadSettings() {
     return true;
   } catch(e) { console.warn('Settings load failed:', e); return false; }
 }
-
+ 
 function saveState() {
   try {
     localStorage.setItem(SAVE_KEY, JSON.stringify({
@@ -2829,7 +2911,7 @@ function saveState() {
     saveSettings(); // always keep settings in sync too
   } catch(e) { console.warn('Save failed:', e); }
 }
-
+ 
 function loadState() {
   try {
     // Load settings first (habits, goals, rewards)
@@ -2858,17 +2940,17 @@ function loadState() {
     return true;
   } catch(e) { console.warn('Load failed:', e); return false; }
 }
-
+ 
 function resetStep1() {
   document.getElementById('reset-confirm-box').style.display = 'block';
   document.getElementById('reset-btn-step1').style.display = 'none';
 }
-
+ 
 function cancelReset() {
   document.getElementById('reset-confirm-box').style.display = 'none';
   document.getElementById('reset-btn-step1').style.display = 'flex';
 }
-
+ 
 function doResetProgress() {
   // Keep habits definitions, goals, rewards — only reset progress
   state.clips = [];
@@ -2891,19 +2973,19 @@ function doResetProgress() {
   showScreen('dashboard');
   renderAll();
 }
-
+ 
 // Select all text on focus so users can type to replace, or click to reposition
 document.addEventListener('focusin', (e) => {
   if (e.target.classList.contains('setup-input') && e.target.type !== 'number') {
     e.target.select();
   }
 });
-
+ 
 function dismissFirstHint() {
   document.getElementById('first-hint').style.display = 'none';
   localStorage.setItem('habitspin_seen', '1');
 }
-
+ 
 window.addEventListener('load', () => {
   loadState();
   checkHabitDailyReset();
@@ -2911,12 +2993,12 @@ window.addEventListener('load', () => {
   renderAll();
   initJarOdometer();
   drawWheel('wheelCanvas', WHEEL_SEGMENTS, 0, 320);
-
+ 
   // Show onboarding hint for first-time users
   if (!localStorage.getItem('habitspin_seen')) {
     setTimeout(() => { document.getElementById('first-hint').style.display = 'flex'; }, 800);
   }
-
+ 
   setTimeout(() => {
     showToast('👋 Tap habits to complete them & earn clips!');
   }, 1000);
@@ -2924,3 +3006,4 @@ window.addEventListener('load', () => {
 </script>
 </body>
 </html>
+ 
