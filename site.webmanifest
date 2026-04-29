@@ -1,6 +1,6 @@
 {
-  "name": "HabitSpin",
-  "short_name": "HabitSpin",
+  "name": "ClipSpin",
+  "short_name": "ClipSpin",
   "icons": [
     {
       "src": "/icon-192.png",
@@ -13,7 +13,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/HabbitGamble/",
+  "start_url": "/clipspin/",
   "display": "standalone",
   "background_color": "#0B0C11",
   "theme_color": "#0B0C11"
