@@ -2407,6 +2407,7 @@ function importProgress() {
     if (data.settings) localStorage.setItem(SETTINGS_KEY, JSON.stringify(data.settings));
     if (data.progress) localStorage.setItem(SAVE_KEY, JSON.stringify(data.progress));
     if (data.cats)     localStorage.setItem(CAT_SAVE_KEY, JSON.stringify(data.cats));
+    else               localStorage.removeItem(CAT_SAVE_KEY); // force legacy migration on load
     area.value = '';
  
     // Reload all state fresh
@@ -3040,42 +3041,96 @@ function switchCategory(idx) {
 }
  
 function initCategories() {
-  // Try to load from cat save key
+  // Try to load from new cat save key first
   try {
     const raw = localStorage.getItem(CAT_SAVE_KEY);
     if (raw) {
       const saved = JSON.parse(raw);
-      state.categories = saved.categories || null;
-      state.activeCategoryIndex = saved.activeCategoryIndex || 0;
-      state.categoryIdCounter = saved.categoryIdCounter || 2;
+      if (saved.categories && saved.categories.length > 0) {
+        state.categories = saved.categories;
+        state.activeCategoryIndex = saved.activeCategoryIndex || 0;
+        state.categoryIdCounter = saved.categoryIdCounter || 2;
+        loadCategoryIntoState(state.categories[state.activeCategoryIndex]);
+        return;
+      }
     }
   } catch(e) {}
  
-  if (!state.categories) {
-    // Migration: wrap current state into a "Lifestyle" category
-    state.categories = [{
-      id: 1,
-      name: 'Lifestyle',
-      habits: state.habits,
-      lastHabitResetDate: state.lastHabitResetDate,
-      clips: state.clips,
-      jar: state.jar,
-      jarGoals: state.jarGoals,
-      jarGoalIdCounter: state.jarGoalIdCounter,
-      jarCompleteReward: state.jarCompleteReward,
-      jarJourney: state.jarJourney,
-      wonRewards: state.wonRewards,
-      wonRewardIdCounter: state.wonRewardIdCounter,
-      habitsCompletedTotal: state.habitsCompletedTotal,
-      habitMonth: state.habitMonth,
-      rewards: state.rewards,
-    }];
-    state.activeCategoryIndex = 0;
-    state.categoryIdCounter = 2;
-    saveCats();
+  // No cat key found — migrate from legacy keys
+  const legacyState = migrateLegacyData();
+ 
+  state.categories = [{
+    id: 1,
+    name: 'Lifestyle',
+    colorIndex: 0,
+    habits:               legacyState.habits,
+    lastHabitResetDate:   legacyState.lastHabitResetDate,
+    clips:                legacyState.clips,
+    jar:                  legacyState.jar,
+    jarGoals:             legacyState.jarGoals,
+    jarGoalIdCounter:     legacyState.jarGoalIdCounter,
+    jarCompleteReward:    legacyState.jarCompleteReward,
+    jarJourney:           legacyState.jarJourney,
+    wonRewards:           legacyState.wonRewards,
+    wonRewardIdCounter:   legacyState.wonRewardIdCounter,
+    habitsCompletedTotal: legacyState.habitsCompletedTotal,
+    habitMonth:           legacyState.habitMonth,
+    rewards:              legacyState.rewards,
+  }];
+  state.activeCategoryIndex = 0;
+  state.categoryIdCounter = 2;
+  saveCats();
+  loadCategoryIntoState(state.categories[0]);
+}
+ 
+function migrateLegacyData() {
+  // Read old SETTINGS_KEY (habits, jarGoals, rewards, etc.)
+  let settings = {};
+  try { settings = JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}'); } catch(e) {}
+ 
+  // Read old SAVE_KEY (clips, jar, wonRewards, habitMonth, etc.)
+  let progress = {};
+  try { progress = JSON.parse(localStorage.getItem(SAVE_KEY) || '{}'); } catch(e) {}
+ 
+  const defaultHabits = [
+    {id:1, name:'Morning Fitness', task:'15 Burpees', icon:'💪', timesPerDay:1, doneToday:0},
+    {id:2, name:'Deep Reading', task:'Read 20 mins', icon:'📚', timesPerDay:1, doneToday:0},
+    {id:3, name:'Side Hustle', task:'Work 30 mins', icon:'💻', timesPerDay:1, doneToday:0}
+  ];
+ 
+  // Merge doneToday from progress.habits onto settings.habits if available
+  let habits = settings.habits || progress.habits || defaultHabits;
+  if (settings.habits && progress.habits) {
+    habits = settings.habits.map(h => {
+      const ph = progress.habits.find(p => p.id === h.id);
+      return ph ? { ...h, doneToday: ph.doneToday || 0 } : h;
+    });
   }
-  // Load active category into state
-  loadCategoryIntoState(state.categories[state.activeCategoryIndex]);
+ 
+  let rewards = settings.rewards || progress.rewards || {
+    t1:['30 min social media'], t2:['1 hour gaming session'],
+    t3:['Buy something you want'], jackpot:['Weekend trip!']
+  };
+  // Migrate single-string rewards to arrays
+  ['t1','t2','t3','jackpot'].forEach(k => {
+    if (typeof rewards[k] === 'string') rewards[k] = [rewards[k]];
+  });
+ 
+  return {
+    habits,
+    lastHabitResetDate:   progress.lastHabitResetDate   || settings.lastHabitResetDate || null,
+    clips:                progress.clips                 || [],
+    jar:                  progress.jar                   || 0,
+    jarGoals:             settings.jarGoals              || progress.jarGoals || [{id:1,name:'Mini Treat',amount:10},{id:2,name:'Nice Dinner',amount:25},{id:3,name:'Weekend Trip',amount:50}],
+    jarGoalIdCounter:     settings.jarGoalIdCounter      || progress.jarGoalIdCounter || 4,
+    jarCompleteReward:    settings.jarCompleteReward     || progress.jarCompleteReward || 'Moonshot achieved! 🎉',
+    jarJourney:           progress.jarJourney            || 0,
+    wonRewards:           progress.wonRewards            || [],
+    wonRewardIdCounter:   progress.wonRewardIdCounter    || 1,
+    habitsCompletedTotal: progress.habitsCompletedTotal  || 0,
+    habitMonth:           progress.habitMonth            || null,
+    rewards,
+  };
 }
  
 function saveCats() {
