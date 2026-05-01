@@ -360,7 +360,7 @@ h2{font-size:1.4rem;font-weight:700;}
 /* Odometer minimal theme */
 .odometer.odometer-auto-theme,.odometer.odometer-theme-minimal{font-family:inherit;line-height:1em;display:inline-block;position:relative}.odometer.odometer-auto-theme .odometer-digit,.odometer.odometer-theme-minimal .odometer-digit{display:inline-block;position:relative}.odometer.odometer-auto-theme .odometer-digit .odometer-digit-spacer,.odometer.odometer-theme-minimal .odometer-digit .odometer-digit-spacer{display:inline-block;visibility:hidden}.odometer.odometer-auto-theme .odometer-digit .odometer-digit-inner,.odometer.odometer-theme-minimal .odometer-digit .odometer-digit-inner{text-align:left;display:block;position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden}.odometer.odometer-auto-theme .odometer-digit .odometer-ribbon,.odometer.odometer-theme-minimal .odometer-digit .odometer-ribbon{display:block}.odometer.odometer-auto-theme .odometer-digit .odometer-ribbon-inner,.odometer.odometer-theme-minimal .odometer-digit .odometer-ribbon-inner{display:block;-webkit-backface-visibility:hidden}.odometer.odometer-auto-theme .odometer-digit .odometer-value,.odometer.odometer-theme-minimal .odometer-digit .odometer-value{display:block;-webkit-transform:translateZ(0)}.odometer.odometer-auto-theme .odometer-digit .odometer-value.odometer-last-value,.odometer.odometer-theme-minimal .odometer-digit .odometer-value.odometer-last-value{position:absolute}.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner,.odometer.odometer-theme-minimal.odometer-animating-up .odometer-ribbon-inner{-webkit-transition:all 1000ms ease-in-out;-moz-transition:all 1000ms ease-in-out;-ms-transition:all 1000ms ease-in-out;-o-transition:all 1000ms ease-in-out;transition:all 1000ms ease-in-out}.odometer.odometer-auto-theme.odometer-animating-up.odometer-animating .odometer-ribbon-inner,.odometer.odometer-theme-minimal.odometer-animating-up.odometer-animating .odometer-ribbon-inner{-webkit-transform:translateY(-100%);-moz-transform:translateY(-100%);-ms-transform:translateY(-100%);-o-transform:translateY(-100%);transform:translateY(-100%)}.odometer.odometer-auto-theme.odometer-animating-down .odometer-ribbon-inner,.odometer.odometer-theme-minimal.odometer-animating-down .odometer-ribbon-inner{-webkit-transform:translateY(-100%);-moz-transform:translateY(-100%);-ms-transform:translateY(-100%);-o-transform:translateY(-100%);transform:translateY(-100%)}.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner,.odometer.odometer-theme-minimal.odometer-animating-down.odometer-animating .odometer-ribbon-inner{-webkit-transition:all 1000ms ease-in-out;-moz-transition:all 1000ms ease-in-out;-ms-transition:all 1000ms ease-in-out;-o-transition:all 1000ms ease-in-out;transition:all 1000ms ease-in-out;-webkit-transform:translateY(0);-moz-transform:translateY(0);-ms-transform:translateY(0);-o-transform:translateY(0);transform:translateY(0)}
 /* Override odometer color to match our gold theme */
-#jar-amount.odometer{color:var(--gold);font-family:'Inter',sans-serif;font-size:2rem;font-weight:800;letter-spacing:-0.02em;line-height:1;}
+#jar-amount.odometer{font-family:'Inter',sans-serif;font-size:2rem;font-weight:800;letter-spacing:-0.02em;line-height:1;}
 .clip.selected svg{filter:drop-shadow(0 0 8px var(--mint));outline:2px solid var(--mint);border-radius:4px;}
 .clip.selected{transform:scale(1.15);}
 /* Emoji picker pulse */
@@ -397,10 +397,11 @@ h2{font-size:1.4rem;font-weight:700;}
     </div>
  
     <!-- JAR + STATS ROW (sticky) -->
-    <div style="padding:0 20px 12px;">
-      <div class="card" style="display:flex;gap:16px;align-items:center;">
+    <div style="padding:0 20px 12px;display:flex;gap:8px;align-items:stretch;overflow:hidden;">
+      <!-- JAR CARD -->
+      <div class="card" style="flex:1;display:flex;gap:16px;align-items:center;overflow:hidden;" id="jar-card">
         <!-- Jar visualization -->
-        <div style="position:relative;flex-shrink:0;">
+        <div style="flex-shrink:0;">
           <div class="jar-wrap">
             <svg id="jar-svg" class="jar-svg" viewBox="0 0 64 80" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="10" y="12" width="44" height="58" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
@@ -420,7 +421,7 @@ h2{font-size:1.4rem;font-weight:700;}
         </div>
         <!-- Jar stats -->
         <div style="flex:1;min-width:0;">
-          <div style="font-size:0.875rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;font-weight:700;">Prize Jar</div>
+          <div id="jar-cat-label" style="font-size:0.875rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;font-weight:700;margin-bottom:2px;">Lifestyle Jar</div>
           <div style="font-size:2rem;font-weight:800;color:var(--gold);letter-spacing:-0.02em;line-height:1;margin:4px 0;">$<span id="jar-amount">0</span></div>
           <div style="font-size:1rem;color:var(--muted);margin-bottom:8px;">
             Goal: <span id="jar-next-name" style="color:var(--text);font-weight:700;">Mini Treat</span>
@@ -435,6 +436,8 @@ h2{font-size:1.4rem;font-weight:700;}
           </div>
         </div>
       </div>
+      <!-- CATEGORY NAV: vertical chevrons outside card, height-filling -->
+      <div id="cat-nav" style="display:none;flex-direction:column;gap:6px;"></div>
     </div>
     <!-- TAB BAR — sticky with the header -->
     <div style="display:flex;gap:0;border-bottom:1px solid var(--border);padding:0 20px;background:var(--bg);">
@@ -607,11 +610,18 @@ h2{font-size:1.4rem;font-weight:700;}
   <div style="display:flex;gap:0;border-bottom:1px solid var(--border);padding:0 20px;margin-top:8px;background:var(--bg);">
     <button id="setup-tab-tasks" onclick="switchSetupTab('tasks')" style="flex:1;padding:10px;font-family:'Inter',sans-serif;font-weight:700;background:none;border:none;color:var(--text);border-bottom:2px solid var(--mint);cursor:pointer;">Habits</button>
     <button id="setup-tab-rewards" onclick="switchSetupTab('rewards')" style="flex:1;padding:10px;font-family:'Inter',sans-serif;font-weight:700;background:none;border:none;color:var(--muted);border-bottom:2px solid transparent;cursor:pointer;">Rewards</button>
+    <button id="setup-tab-category" onclick="switchSetupTab('category')" style="flex:1;padding:10px;font-family:'Inter',sans-serif;font-weight:700;background:none;border:none;color:var(--muted);border-bottom:2px solid transparent;cursor:pointer;">Jars</button>
     <button id="setup-tab-general" onclick="switchSetupTab('general')" style="flex:1;padding:10px;font-family:'Inter',sans-serif;font-weight:700;background:none;border:none;color:var(--muted);border-bottom:2px solid transparent;cursor:pointer;">General</button>
+  </div>
+  <!-- Jar switcher bar — sticky, only on Habits & Rewards tabs -->
+  <div id="setup-jar-bar" style="display:none;align-items:center;justify-content:space-between;padding:6px 20px;border-bottom:1px solid var(--border);">
+    <button onclick="setupSwitchJar(-1)" style="background:none;border:none;color:var(--muted);font-size:1.3rem;cursor:pointer;padding:4px 8px;">‹</button>
+    <span id="setup-jar-label" style="font-weight:700;font-size:0.875rem;"></span>
+    <button onclick="setupSwitchJar(1)" style="background:none;border:none;color:var(--muted);font-size:1.3rem;cursor:pointer;padding:4px 8px;">›</button>
   </div>
   </div>
  
-  <div style="padding:16px 20px 80px;display:flex;flex-direction:column;gap:0;overflow-y:auto;" id="setup-scroll">
+  <div style="padding:12px 20px 80px;display:flex;flex-direction:column;gap:0;overflow-y:auto;" id="setup-scroll">
  
     <!-- TASKS TAB -->
     <div id="setup-panel-tasks" style="display:flex;flex-direction:column;gap:16px;">
@@ -655,6 +665,13 @@ h2{font-size:1.4rem;font-weight:700;}
           <input class="setup-input" id="jar-complete-reward" placeholder="e.g. Book that flight!" type="text" autocapitalize="sentences">
         </div>
       </div>
+    </div>
+ 
+    <!-- CATEGORY TAB -->
+    <div id="setup-panel-category" style="display:none;flex-direction:column;gap:16px;">
+      <div style="color:var(--muted);line-height:1.6;">Each jar has its own habits and rewards. Group related habits together — for example, one jar for fitness, another for creative work. Switch between them on the main screen.</div>
+      <div id="cat-setup-list" style="display:flex;flex-direction:column;gap:8px;"></div>
+      <button class="btn btn-ghost" style="width:100%;border-radius:14px;" onclick="addCategory()">+ Add Category</button>
     </div>
  
     <!-- GENERAL TAB -->
@@ -756,6 +773,7 @@ const CLIP_LABELS = {
 };
  
 let state = {
+  // Active category fields (proxied from categories[activeCategoryIndex])
   habits: [
     {id:1, name:'Morning Fitness', task:'15 Burpees', icon:'💪', timesPerDay:1, doneToday:0},
     {id:2, name:'Deep Reading', task:'Read 20 mins', icon:'📚', timesPerDay:1, doneToday:0},
@@ -772,7 +790,22 @@ let state = {
   ],
   jarGoalIdCounter: 4,
   jarCompleteReward: 'Moonshot achieved! Claim your big prize 🎉',
-  jarJourney: 0,           // how many jar journeys completed
+  jarJourney: 0,
+  wonRewards: [],
+  wonRewardIdCounter: 1,
+  habitsCompletedTotal: 0,
+  habitMonth: null,
+  rewards: {
+    t1: ['30 min social media'],
+    t2: ['1 hour gaming session'],
+    t3: ['Buy something you want'],
+    jackpot: ['Weekend trip!']
+  },
+  // Category system
+  categories: null,       // populated on load/init
+  activeCategoryIndex: 0,
+  categoryIdCounter: 2,
+  // Spin session (global, not per-category)
   spinQueue: [],
   clipsUsedThisRound: 0,
   spinsCompletedThisRound: 0,
@@ -780,10 +813,7 @@ let state = {
   originalSubmittedClips: [],
   currentSpinTier: null,
   pendingBonusTierReward: null,
-  wonRewards: [],
-  wonRewardIdCounter: 1,
   tierProbs: {t1:40, t2:30, t3:20, bonus:8, jackpot:2},
-  habitMonth: null,    // compact monthly schema (see initHabitMonth)
   spinning: false,
   lastResult: null,
   streak: 0,
@@ -791,12 +821,6 @@ let state = {
   bonusTimeLeft: 600,
   bonusTimerInterval: null,
   bonusResult: null,
-  rewards: {
-    t1: ['30 min social media'],
-    t2: ['1 hour gaming session'],
-    t3: ['Buy something you want'],
-    jackpot: ['Weekend trip!']
-  }
 };
  
 let dragState = {
@@ -1871,6 +1895,8 @@ function getPrevJarGoal() {
 }
  
 function updateJar() {
+  // Apply active category color
+  if (state.categories) applyJarColor(catColor(state.categories[state.activeCategoryIndex]));
   const sorted = [...state.jarGoals].sort((a, b) => a.amount - b.amount).slice(0, 3); // max 3
   const maxGoal = sorted[sorted.length - 1]?.amount || 50;
  
@@ -2121,7 +2147,6 @@ function renderSetup() {
   renderRewardTiers();
   renderHabitSetup();
   renderJarGoals();
-  // Don't auto-render sliders until general tab opened
 }
  
  
@@ -2334,7 +2359,7 @@ function removeHabit(i) {
  
  
 function switchSetupTab(tab) {
-  const tabs = ["tasks","rewards","general"];
+  const tabs = ["tasks","rewards","category","general"];
   tabs.forEach(t => {
     const panel = document.getElementById("setup-panel-"+t);
     const btn   = document.getElementById("setup-tab-"+t);
@@ -2342,20 +2367,23 @@ function switchSetupTab(tab) {
     if (btn)   { btn.style.color = t === tab ? "var(--text)" : "var(--muted)"; btn.style.borderBottomColor = t === tab ? "var(--mint)" : "transparent"; }
   });
   const sc = document.getElementById("setup-scroll"); if (sc) sc.scrollTop = 0; window.scrollTo(0,0);
+  if (tab === "category") renderCategorySetup();
+  updateSetupJarLabels(tab);
 }
  
 function exportProgress() {
   try {
+    flushActiveCategory();
     const data = {
-      _v: 1,
+      _v: 2,
       settings: JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}'),
-      progress: JSON.parse(localStorage.getItem(SAVE_KEY) || '{}')
+      progress: JSON.parse(localStorage.getItem(SAVE_KEY) || '{}'),
+      cats: JSON.parse(localStorage.getItem(CAT_SAVE_KEY) || '{}')
     };
     const json = JSON.stringify(data);
     if (navigator.clipboard?.writeText) {
       navigator.clipboard.writeText(json).then(() => showToast('✅ Copied to clipboard!'));
     } else {
-      // Fallback for browsers without clipboard API
       const ta = document.createElement('textarea');
       ta.value = json;
       ta.style.cssText = 'position:fixed;opacity:0;';
@@ -2378,6 +2406,7 @@ function importProgress() {
     if (!data._v) throw new Error('Invalid format');
     if (data.settings) localStorage.setItem(SETTINGS_KEY, JSON.stringify(data.settings));
     if (data.progress) localStorage.setItem(SAVE_KEY, JSON.stringify(data.progress));
+    if (data.cats)     localStorage.setItem(CAT_SAVE_KEY, JSON.stringify(data.cats));
     area.value = '';
  
     // Reload all state fresh
@@ -2393,8 +2422,6 @@ function importProgress() {
     requestAnimationFrame(() => {
       jarOd = null;
       renderAll();
-      initJarOdometer();
-      // Force-refresh the stats tab too in case it was active
       renderRewardsPanel();
       renderHabitGrids();
       showToast('✅ Progress imported! Welcome back.');
@@ -2435,8 +2462,7 @@ function saveSetup() {
   });
   const jcr = document.getElementById('jar-complete-reward');
   if (jcr && jcr.value) state.jarCompleteReward = jcr.value;
-  saveSettings(); // persist habits/goals/rewards independently of progress
-  saveState();
+  saveState(); // flushes categories + saves
   showScreen('dashboard');
   renderAll();
 }
@@ -2565,9 +2591,12 @@ let jarOd = null;
 function initJarOdometer() {
   const el = document.getElementById('jar-amount');
   if (!el) return;
+  // Always destroy existing instance first so we start fresh
+  jarOd = null;
+  const startVal = parseInt(el.textContent) || 0;
   jarOd = new Odometer({
     el: el,
-    value: state.jar,
+    value: startVal,   // initialise at whatever is currently shown — no animation
     format: 'd',
     theme: 'minimal',
     duration: 1000
@@ -2575,13 +2604,24 @@ function initJarOdometer() {
 }
  
 function updateJarAmount(newValue, animate = false) {
-  if (!jarOd) initJarOdometer();
-  if (!jarOd) return;
+  const v = Math.max(0, Math.floor(newValue));
+  const el = document.getElementById('jar-amount');
+  if (!el) return;
+ 
+  // During jar switch, bypass Odometer entirely — just show raw number
+  if (window._suppressOdometer) {
+    el.textContent = String(v);
+    jarOd = null;
+    return;
+  }
+ 
   if (animate) {
-    // Setting innerHTML triggers the Odometer animation (as per docs/demo)
-    jarOd.el.innerHTML = Math.max(0, Math.floor(newValue));
+    if (!jarOd) initJarOdometer();
+    jarOd.el.innerHTML = v;
   } else {
-    jarOd.update(Math.max(0, Math.floor(newValue)));
+    el.textContent = String(v);
+    jarOd = null;
+    initJarOdometer();
   }
 }
  
@@ -2846,9 +2886,23 @@ function renderHabitGrids() {
   }).join('');
 }
  
+function handleJarSwipeStart(e) {
+  window._jarSwipeY = e.touches[0].clientY;
+}
+function handleJarSwipeEnd(e) {
+  if (!state.categories || state.categories.length <= 1) return;
+  const dy = e.changedTouches[0].clientY - (window._jarSwipeY || 0);
+  if (Math.abs(dy) < 40) return;
+  const n = state.categories.length;
+  const i = state.activeCategoryIndex;
+  // swipe up = go to next (down arrow), swipe down = go to prev (up arrow)
+  animateSwitchCategory(dy < 0 ? (i+1)%n : (i-1+n)%n, dy < 0 ? 'down' : 'up');
+}
+ 
 function renderAll() {
   checkHabitDailyReset();
   updateNavDate();
+  renderCategoryNav();
   renderHabits();
   renderInventory();
   renderDropZone();
@@ -2871,14 +2925,331 @@ function renderAll() {
 const SAVE_KEY = 'habitspin_v1';
 const SETTINGS_KEY = 'habitspin_settings_v1';
  
-function saveSettings() {
+// Category color palette — index 0 = default gold
+const CAT_COLORS = [
+  {top:'#f8b722', bot:'#f97316', text:'#f8b722', prog:'var(--orange),#f8b722', border:'rgba(248,183,34,0.25)'},  // gold
+  {top:'#4b7cf7', bot:'#7c3aed', text:'#4b7cf7', prog:'#7c3aed,#4b7cf7',       border:'rgba(75,124,247,0.25)'},   // blue-purple
+  {top:'#00e5a0', bot:'#06b6d4', text:'#00e5a0', prog:'#06b6d4,#00e5a0',       border:'rgba(0,229,160,0.25)'},    // mint-cyan
+  {top:'#f0484a', bot:'#f97316', text:'#f0484a', prog:'#f97316,#f0484a',       border:'rgba(240,72,74,0.25)'},    // red-orange
+  {top:'#a259f7', bot:'#ec4899', text:'#a259f7', prog:'#ec4899,#a259f7',       border:'rgba(162,89,247,0.25)'},   // purple-pink
+  {top:'#22c55e', bot:'#06b6d4', text:'#22c55e', prog:'#06b6d4,#22c55e',       border:'rgba(34,197,94,0.25)'},    // green-teal
+];
+ 
+function catColor(cat) {
+  const idx = (cat && cat.colorIndex != null) ? cat.colorIndex : 0;
+  return CAT_COLORS[idx % CAT_COLORS.length];
+}
+ 
+function applyJarColor(color) {
+  // SVG gradient stops
+  const stops = document.querySelectorAll('#jarGrad stop');
+  if (stops[0]) stops[0].setAttribute('stop-color', color.top);
+  if (stops[1]) stops[1].setAttribute('stop-color', color.bot);
+  // Amount text
+  const amt = document.getElementById('jar-amount');
+  if (amt && amt.parentElement) amt.parentElement.style.color = color.text;
+  const amtOd = document.getElementById('jar-amount');
+  if (amtOd) amtOd.style.color = color.text;
+  // Progress bar
+  const prog = document.getElementById('jar-progress');
+  if (prog) prog.style.background = `linear-gradient(90deg,${color.prog})`;
+  // Card left-border accent
+  const card = document.getElementById('jar-card');
+  if (card) card.style.borderColor = color.border;
+  // Target amount color
+  const tgt = document.getElementById('jar-target');
+  if (tgt) tgt.style.color = color.text;
+}
+const CAT_SAVE_KEY = 'habitspin_cats_v1';
+ 
+function catSnapshot() {
+  return {
+    id: state.categoryIdCounter,
+    name: 'New Category',
+    colorIndex: state.categoryIdCounter % CAT_COLORS.length,
+    habits: [{id: Date.now(), name:'New Habit', task:'Define your task', icon:'⚡', timesPerDay:1, doneToday:0}],
+    lastHabitResetDate: null,
+    clips: [], jar: 0,
+    jarGoals: [{id:1, name:'Mini Treat', amount:10},{id:2, name:'Nice Dinner', amount:25},{id:3, name:'Weekend Trip', amount:50}],
+    jarGoalIdCounter: 4, jarCompleteReward: 'Big reward!',
+    jarJourney: 0, wonRewards: [], wonRewardIdCounter: 1,
+    habitsCompletedTotal: 0, habitMonth: null,
+    rewards: {t1:['Social media 30min'],t2:['Gaming 1hr'],t3:['Buy something'],jackpot:['Weekend trip!']},
+  };
+}
+ 
+function buildCategoryFromState() {
+  // Snapshot current state fields into a category object
+  return {
+    id: state.categories ? state.categories[state.activeCategoryIndex]?.id : 1,
+    name: state.categories ? state.categories[state.activeCategoryIndex]?.name : 'Lifestyle',
+    colorIndex: state.categories ? (state.categories[state.activeCategoryIndex]?.colorIndex ?? 0) : 0,
+    habits: state.habits,
+    lastHabitResetDate: state.lastHabitResetDate,
+    clips: state.clips,
+    jar: state.jar,
+    jarGoals: state.jarGoals,
+    jarGoalIdCounter: state.jarGoalIdCounter,
+    jarCompleteReward: state.jarCompleteReward,
+    jarJourney: state.jarJourney,
+    wonRewards: state.wonRewards,
+    wonRewardIdCounter: state.wonRewardIdCounter,
+    habitsCompletedTotal: state.habitsCompletedTotal,
+    habitMonth: state.habitMonth,
+    rewards: state.rewards,
+  };
+}
+ 
+function loadCategoryIntoState(cat) {
+  state.habits = cat.habits || [];
+  state.lastHabitResetDate = cat.lastHabitResetDate || null;
+  state.clips = cat.clips || [];
+  state.submittedClips = [];
+  state.jar = cat.jar || 0;
+  state.jarGoals = cat.jarGoals || [{id:1,name:'Mini Treat',amount:10}];
+  state.jarGoalIdCounter = cat.jarGoalIdCounter || 4;
+  state.jarCompleteReward = cat.jarCompleteReward || 'Big reward!';
+  state.jarJourney = cat.jarJourney || 0;
+  state.wonRewards = cat.wonRewards || [];
+  state.wonRewardIdCounter = cat.wonRewardIdCounter || 1;
+  state.habitsCompletedTotal = cat.habitsCompletedTotal || 0;
+  state.habitMonth = cat.habitMonth || null;
+  state.rewards = cat.rewards || {t1:['Social media'],t2:['Gaming'],t3:['Buy something'],jackpot:['Trip!']};
+}
+ 
+function flushActiveCategory() {
+  if (!state.categories) return;
+  state.categories[state.activeCategoryIndex] = buildCategoryFromState();
+}
+ 
+function switchCategory(idx) {
+  if (!state.categories || idx < 0 || idx >= state.categories.length) return;
+  flushActiveCategory();
+  state.activeCategoryIndex = idx;
+  loadCategoryIntoState(state.categories[idx]);
+  state.spinQueue = []; state.submittedClips = [];
+  state.spinsCompletedThisRound = 0;
+  jarOd = null;
+  checkHabitDailyReset();
+  // Suppress odometer during render so no animation fires
+  window._suppressOdometer = true;
+  renderAll();
+  window._suppressOdometer = false;
+  // Reinitialize odometer at the correct value after render settles
+  requestAnimationFrame(() => initJarOdometer());
+}
+ 
+function initCategories() {
+  // Try to load from cat save key
   try {
-    localStorage.setItem(SETTINGS_KEY, JSON.stringify({
+    const raw = localStorage.getItem(CAT_SAVE_KEY);
+    if (raw) {
+      const saved = JSON.parse(raw);
+      state.categories = saved.categories || null;
+      state.activeCategoryIndex = saved.activeCategoryIndex || 0;
+      state.categoryIdCounter = saved.categoryIdCounter || 2;
+    }
+  } catch(e) {}
+ 
+  if (!state.categories) {
+    // Migration: wrap current state into a "Lifestyle" category
+    state.categories = [{
+      id: 1,
+      name: 'Lifestyle',
       habits: state.habits,
+      lastHabitResetDate: state.lastHabitResetDate,
+      clips: state.clips,
+      jar: state.jar,
       jarGoals: state.jarGoals,
       jarGoalIdCounter: state.jarGoalIdCounter,
       jarCompleteReward: state.jarCompleteReward,
+      jarJourney: state.jarJourney,
+      wonRewards: state.wonRewards,
+      wonRewardIdCounter: state.wonRewardIdCounter,
+      habitsCompletedTotal: state.habitsCompletedTotal,
+      habitMonth: state.habitMonth,
       rewards: state.rewards,
+    }];
+    state.activeCategoryIndex = 0;
+    state.categoryIdCounter = 2;
+    saveCats();
+  }
+  // Load active category into state
+  loadCategoryIntoState(state.categories[state.activeCategoryIndex]);
+}
+ 
+function saveCats() {
+  flushActiveCategory();
+  try {
+    localStorage.setItem(CAT_SAVE_KEY, JSON.stringify({
+      categories: state.categories,
+      activeCategoryIndex: state.activeCategoryIndex,
+      categoryIdCounter: state.categoryIdCounter,
+    }));
+  } catch(e) {}
+}
+ 
+function addCategory() {
+  const snap = catSnapshot();
+  snap.id = state.categoryIdCounter++;
+  snap.name = 'New Category';
+  state.categories.push(snap);
+  saveCats();
+  renderCategorySetup();
+  showToast('Category added!');
+}
+ 
+function removeCategory(idx) {
+  if (state.categories.length <= 1) { showToast("Can't delete the only jar!"); return; }
+  // Show inline confirm inside the card
+  const confirmId = 'del-confirm-' + idx;
+  if (document.getElementById(confirmId)) return; // already showing
+  const card = document.querySelector(`[data-cat-idx="${idx}"]`);
+  if (!card) return;
+  const confirmDiv = document.createElement('div');
+  confirmDiv.id = confirmId;
+  confirmDiv.style.cssText = 'margin-top:8px;display:flex;align-items:center;gap:8px;';
+  confirmDiv.innerHTML = `
+    <span style="flex:1;font-size:0.8rem;color:var(--red);">Delete this jar and all its data?</span>
+    <button onclick="confirmDeleteCategory(${idx})" style="background:var(--red);border:none;color:white;padding:4px 10px;border-radius:8px;font-weight:700;cursor:pointer;font-size:0.8rem;">Delete</button>
+    <button onclick="document.getElementById('${confirmId}').remove()" style="background:rgba(255,255,255,0.08);border:none;color:var(--muted);padding:4px 10px;border-radius:8px;font-weight:700;cursor:pointer;font-size:0.8rem;">Cancel</button>
+  `;
+  card.appendChild(confirmDiv);
+}
+ 
+function confirmDeleteCategory(idx) {
+  if (state.categories.length <= 1) return;
+  state.categories.splice(idx, 1);
+  if (state.activeCategoryIndex >= state.categories.length) state.activeCategoryIndex = 0;
+  loadCategoryIntoState(state.categories[state.activeCategoryIndex]);
+  saveCats();
+  renderCategorySetup();
+  renderCategoryNav();
+  renderAll();
+  showToast('Jar deleted');
+}
+ 
+function setupSwitchJar(dir) {
+  if (!state.categories || state.categories.length <= 1) return;
+  const n = state.categories.length;
+  const next = ((state.activeCategoryIndex + dir) + n) % n;
+  // Save current setup edits first
+  const jcr = document.getElementById('jar-complete-reward');
+  if (jcr) state.jarCompleteReward = jcr.value;
+  flushActiveCategory();
+  state.activeCategoryIndex = next;
+  loadCategoryIntoState(state.categories[next]);
+  checkHabitDailyReset();
+  saveCats();
+  jarOd = null;
+  window._suppressOdometer = true;
+  renderAll();
+  window._suppressOdometer = false;
+  requestAnimationFrame(() => initJarOdometer());
+  renderCategoryNav();
+  renderSetup();
+  updateSetupJarLabels();
+}
+ 
+function updateSetupJarLabels(activeTab) {
+  if (!state.categories) return;
+  const cat = state.categories[state.activeCategoryIndex];
+  const name = cat?.name || 'Jar';
+  const color = catColor(cat).text;
+  const hasMultiple = state.categories.length > 1;
+  const showOnTabs = ['tasks', 'rewards'];
+  const bar = document.getElementById('setup-jar-bar');
+  const lbl = document.getElementById('setup-jar-label');
+  if (!bar) return;
+  const tab = activeTab || (bar._activeTab || 'tasks');
+  bar._activeTab = tab;
+  const show = hasMultiple && showOnTabs.includes(tab);
+  bar.style.display = show ? 'flex' : 'none';
+  if (lbl) { lbl.textContent = name + ' Jar'; lbl.style.color = color; }
+}
+ 
+function renameCategoryAt(idx, name) {
+  if (!state.categories[idx]) return;
+  state.categories[idx].name = name;
+  if (idx === state.activeCategoryIndex) {
+    // Update jar label immediately
+    const lbl = document.getElementById('jar-cat-label');
+    if (lbl) lbl.textContent = name + ' Jar';
+  }
+  markSetupDirty();
+}
+ 
+function renderCategoryNav() {
+  const nav = document.getElementById('cat-nav');
+  if (!nav || !state.categories) return;
+  const cats = state.categories;
+  const i = state.activeCategoryIndex;
+  const lbl = document.getElementById('jar-cat-label');
+  if (lbl) lbl.textContent = cats[i].name + ' Jar';
+  applyJarColor(catColor(cats[i]));
+ 
+  if (cats.length <= 1) {
+    nav.style.display = 'none';
+    return;
+  }
+  const n = cats.length;
+  nav.style.display = 'flex';
+  const btnStyle = `
+    flex:1;display:flex;align-items:center;justify-content:center;
+    width:32px;border-radius:10px;cursor:pointer;
+    background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);
+    color:var(--text);font-size:1.1rem;line-height:1;padding:0;
+  `;
+  nav.innerHTML = `
+    <button onclick="animateSwitchCategory(${(i-1+n)%n},'up')" style="${btnStyle}">∧</button>
+    <button onclick="animateSwitchCategory(${(i+1)%n},'down')" style="${btnStyle}">∨</button>
+  `;
+}
+ 
+function animateSwitchCategory(idx, dir) {
+  const card = document.getElementById('jar-card');
+  if (!card) { switchCategory(idx); return; }
+  // Slide out
+  const outY = dir === 'down' ? '-60px' : '60px';
+  card.style.transition = 'transform 0.22s cubic-bezier(0.4,0,1,1), opacity 0.22s';
+  card.style.transform = `translateY(${outY})`;
+  card.style.opacity = '0';
+ 
+  setTimeout(() => {
+    switchCategory(idx);
+    // Snap to opposite side instantly (no transition)
+    card.style.transition = 'none';
+    card.style.transform = `translateY(${dir === 'down' ? '60px' : '-60px'})`;
+    card.style.opacity = '0';
+    // Force reflow then slide in
+    card.getBoundingClientRect();
+    card.style.transition = 'transform 0.25s cubic-bezier(0,0,0.2,1), opacity 0.25s';
+    card.style.transform = 'translateY(0)';
+    card.style.opacity = '1';
+  }, 220);
+}
+ 
+function renderCategorySetup() {
+  const container = document.getElementById('cat-setup-list');
+  if (!container || !state.categories) return;
+  flushActiveCategory();
+  container.innerHTML = state.categories.map((c, idx) => `
+    <div class="card2" data-cat-idx="${idx}" style="display:flex;flex-direction:column;gap:8px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        ${idx === state.activeCategoryIndex ? '<span style="color:var(--mint);font-size:0.75rem;font-weight:700;flex-shrink:0;">ACTIVE</span>' : ''}
+        <input class="setup-input" style="flex:1;padding:8px 12px;" value="${c.name}"
+          oninput="renameCategoryAt(${idx}, this.value); saveCats();"
+          autocapitalize="words">
+        <button onclick="switchCategory(${idx}); showScreen('dashboard');" style="background:none;border:1px solid var(--border);border-radius:8px;padding:4px 10px;color:var(--mint);font-size:0.875rem;cursor:pointer;font-weight:700;flex-shrink:0;">Switch</button>
+        <button onclick="removeCategory(${idx})" style="background:none;border:none;color:var(--muted);font-size:1.1rem;cursor:pointer;padding:2px 4px;flex-shrink:0;">✕</button>
+      </div>
+    </div>
+  `).join('');
+}
+ 
+function saveSettings() {
+  try {
+    localStorage.setItem(SETTINGS_KEY, JSON.stringify({
       tierProbs: state.tierProbs
     }));
   } catch(e) { console.warn('Settings save failed:', e); }
@@ -2889,65 +3260,38 @@ function loadSettings() {
     const raw = localStorage.getItem(SETTINGS_KEY);
     if (!raw) return false;
     const s = JSON.parse(raw);
-    if (s.habits) state.habits = s.habits;
-    if (s.jarGoals) state.jarGoals = s.jarGoals;
-    if (s.jarGoalIdCounter) state.jarGoalIdCounter = s.jarGoalIdCounter;
-    if (s.jarCompleteReward) state.jarCompleteReward = s.jarCompleteReward;
-    if (s.rewards) {
-      state.rewards = { ...state.rewards, ...s.rewards };
-      ['t1','t2','t3','jackpot'].forEach(k => {
-        if (typeof state.rewards[k] === 'string') state.rewards[k] = [state.rewards[k]];
-      });
-    }
     if (s.tierProbs) state.tierProbs = { ...state.tierProbs, ...s.tierProbs };
     return true;
   } catch(e) { console.warn('Settings load failed:', e); return false; }
 }
  
 function saveState() {
+  flushActiveCategory();
+  saveCats();
   try {
     localStorage.setItem(SAVE_KEY, JSON.stringify({
-      habits: state.habits,       // includes doneToday / lastHabitResetDate per habit
       lastHabitResetDate: state.lastHabitResetDate,
-      clips: state.clips,
-      jar: state.jar,
-      jarJourney: state.jarJourney,
       streak: state.streak,
-      habitsCompletedTotal: state.habitsCompletedTotal || 0,
-      wonRewards: state.wonRewards || [],
-      wonRewardIdCounter: state.wonRewardIdCounter || 1,
       tierProbs: state.tierProbs,
-      habitMonth: state.habitMonth || null
     }));
-    saveSettings(); // always keep settings in sync too
+    saveSettings();
   } catch(e) { console.warn('Save failed:', e); }
 }
  
 function loadState() {
   try {
-    // Load settings first (habits, goals, rewards)
+    // Load global settings first (tierProbs etc)
     loadSettings();
-    // Then overlay progress
+    // Load global progress (streak, tierProbs)
     const raw = localStorage.getItem(SAVE_KEY);
-    if (!raw) return false;
-    const saved = JSON.parse(raw);
-    // Merge doneToday back onto habits (settings already loaded habit definitions)
-    if (saved.habits) {
-      saved.habits.forEach(sh => {
-        const h = state.habits.find(h => h.id === sh.id);
-        if (h) { h.doneToday = sh.doneToday || 0; }
-      });
+    if (raw) {
+      const saved = JSON.parse(raw);
+      state.lastHabitResetDate = saved.lastHabitResetDate || null;
+      state.streak = saved.streak || 0;
+      if (saved.tierProbs) state.tierProbs = { ...state.tierProbs, ...saved.tierProbs };
     }
-    state.lastHabitResetDate = saved.lastHabitResetDate || null;
-    state.clips = saved.clips || [];
-    state.jar = saved.jar || 0;
-    state.jarJourney = saved.jarJourney || 0;
-    state.streak = saved.streak || 0;
-    state.habitsCompletedTotal = saved.habitsCompletedTotal || 0;
-    state.wonRewards = saved.wonRewards || [];
-    state.wonRewardIdCounter = saved.wonRewardIdCounter || 1;
-    if (saved.tierProbs) state.tierProbs = { ...state.tierProbs, ...saved.tierProbs };
-    state.habitMonth = saved.habitMonth || null;
+    // Categories handle all per-category data (habits, clips, jar, etc.)
+    initCategories();
     return true;
   } catch(e) { console.warn('Load failed:', e); return false; }
 }
@@ -2974,14 +3318,15 @@ function doResetProgress() {
   state.habitsCompletedTotal = 0;
   state.lastHabitResetDate = null;
   state.habits.forEach(h => { h.doneToday = 0; });
-  state.habitMonth = null;
+  state.wonRewards = []; state.habitMonth = null;
+  flushActiveCategory(); saveCats();
   localStorage.removeItem(SAVE_KEY);
-  // Settings (habits/goals/rewards) deliberately NOT removed
   checkHabitDailyReset();
   cancelReset();
   jarOd = null; updateJarAmount(0, false);
-  showToast('Progress wiped. Fresh start! 💪');
-  showScreen('dashboard');
+  renderCategoryNav();
+  showToast("Progress wiped. Fresh start!");
+  showScreen("dashboard");
   renderAll();
 }
  
@@ -3002,7 +3347,7 @@ window.addEventListener('load', () => {
   checkHabitDailyReset();
   initMuteState();
   renderAll();
-  initJarOdometer();
+  renderCategoryNav();
   drawWheel('wheelCanvas', WHEEL_SEGMENTS, 0, 320);
  
   // Show onboarding hint for first-time users
